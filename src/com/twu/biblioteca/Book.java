@@ -8,6 +8,7 @@ public class Book {
     private String author;
     private String publication;
     private View view;
+
     public Book(int bookNo, String bookName, String status, String author, String publication) {
         this.bookNo = bookNo;
         this.bookName = bookName;
@@ -16,7 +17,8 @@ public class Book {
         this.publication = publication;
         view = new View();
     }
-    public void show(){
+
+    public void show(View view){
         view.showBook(bookNo, bookName, status, author, publication);
     }
 }
