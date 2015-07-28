@@ -9,8 +9,8 @@ public class Menu {
         this.view = view;
     }
 
-    public void executeCommand(String command) {
-        if (command.equals("List Books"))
+    public void executeCommand(int command) {
+        if (command == 1)
             this.library.showListOfBooks(view);
 
     }

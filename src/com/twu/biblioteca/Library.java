@@ -11,6 +11,7 @@ public class Library {
     }
 
     public void showListOfBooks(View view) {
+        view.showListBookMessage();
         for (int i = 0; i < books.size(); i++) {
             view.showBook(books.get(i));
         }

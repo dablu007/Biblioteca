@@ -19,4 +19,9 @@ public class View {
         System.out.println("------------------------------Avilable Books--------------------------");
         System.out.println(String.format("%s%17s%17s%27s", "Book No.", "BookName", "Author", "Publication"));
     }
+
+    public void showOptions() {
+        System.out.println("1.List Books");
+        System.out.println("2.Quit");
+    }
 }

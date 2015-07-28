@@ -24,7 +24,7 @@ public class MenuTest {
         Library library = new Library(books);
         Menu menu = new Menu(library,view);
 
-        menu.executeCommand("List Books");
+        menu.executeCommand(1);
         verify(view).showBook(book);
     }
 }
