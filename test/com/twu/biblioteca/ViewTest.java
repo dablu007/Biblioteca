@@ -1,16 +1,14 @@
 package com.twu.biblioteca;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
-public class MessagesTest {
+
+public class ViewTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -18,15 +16,11 @@ public class MessagesTest {
         System.setOut(new PrintStream(outContent));
     }
 
-    @After
-    public void cleanUpStreams() {
-        System.setOut(null);
-    }
     @Test
     public void shouldCheckForTheWelcomeMessage() {
-        Messages messages = new Messages();
+        View messages = new View();
 
-        messages.showMessage();
+        messages.showWelcomeMessage();
         assertEquals("Welcome to The Bangalore Public Library\n",outContent.toString());
     }
 }
