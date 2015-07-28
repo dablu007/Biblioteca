@@ -11,13 +11,14 @@ import static org.mockito.Mockito.verify;
 public class LibraryTest {
     @Test
     public void shouldAddABookAndShowListOfBooksInTheLibrary() {
-        Book virtualBook = mock(Book.class);
+        Book book = new Book(1,"Java","available","James Gosling","TMH");
+        View view = mock(View.class);
         ArrayList<Book> books = new ArrayList<>();
-        books.add(virtualBook);
+        books.add(book);
         Library library = new Library(books);
 
-        library.showListOfBooks();
+        library.showListOfBooks(view);
 
-        verify(virtualBook, atLeast(1)).show();
+        verify(view, atLeast(1)).showBook(book);
     }
 }

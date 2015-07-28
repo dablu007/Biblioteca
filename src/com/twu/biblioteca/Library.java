@@ -9,9 +9,9 @@ public class Library {
         this.books = books;
     }
 
-    public void showListOfBooks() {
+    public void showListOfBooks(View view) {
         for(Book book: books){
-            book.show();
+            view.showBook(book);
         }
     }
 }

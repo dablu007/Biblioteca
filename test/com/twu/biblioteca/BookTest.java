@@ -1,20 +1,16 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import org.mockito.Mockito;
 
-import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.mock;
+import static org.junit.Assert.assertEquals;
 
 
 public class BookTest {
 
     @Test
-    public void shouldShowABook() {
+    public void shouldGiveABookNumber() {
         Book book = new Book(1,"Java","available","James Gosling","TMH");
-        View view = mock(View.class);
 
-        book.show(view);
-        verify(view, atLeast(1)).showBook(1,"Java","available","James Gosling","TMH");
+        assertEquals(1, book.getBookNo());
     }
 }

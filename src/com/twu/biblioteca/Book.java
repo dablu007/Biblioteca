@@ -7,7 +7,6 @@ public class Book {
     private String status;
     private String author;
     private String publication;
-    private View view;
 
     public Book(int bookNo, String bookName, String status, String author, String publication) {
         this.bookNo = bookNo;
@@ -15,10 +14,25 @@ public class Book {
         this.status = status;
         this.author = author;
         this.publication = publication;
-        view = new View();
     }
 
-    public void show(View view){
-        view.showBook(bookNo, bookName, status, author, publication);
+    public int getBookNo() {
+        return bookNo;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getPublication() {
+        return publication;
     }
 }
