@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -29,7 +30,12 @@ public class ViewTest {
     @Test
     public void shouldDisplayBook() {
         View view = mock(View.class);
-        Book book = new Book(1,"Java","available","James Gosling","TMH");
+        ArrayList book = new ArrayList();
+        book.add(1);
+        book.add("Java");
+        book.add("available");
+        book.add("James Gosling");
+        book.add("TMH");
 
         view.showBook(book);
         verify(view).showBook(book);
