@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -30,12 +31,12 @@ public class ViewTest {
     @Test
     public void shouldDisplayBook() {
         View view = mock(View.class);
-        ArrayList book = new ArrayList();
-        book.add(1);
-        book.add("Java");
-        book.add("available");
-        book.add("James Gosling");
-        book.add("TMH");
+        HashMap book = new HashMap();
+        book.put("bookNo",1);
+        book.put("bookName",1);
+        book.put("availability",1);
+        book.put("author",1);
+        book.put("publication",1);
 
         view.showBook(book);
         verify(view).showBook(book);

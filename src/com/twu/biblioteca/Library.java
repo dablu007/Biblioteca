@@ -1,11 +1,12 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
-    private ArrayList<ArrayList> books;
+    private ArrayList<HashMap> books;
 
-    public Library(ArrayList<ArrayList> books) {
+    public Library(ArrayList<HashMap> books) {
         this.books = books;
     }
 

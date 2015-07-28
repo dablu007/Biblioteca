@@ -1,15 +1,24 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Inputs {
-    public ArrayList<ArrayList> addBooks() {
-        ArrayList bookOne = new ArrayList();
-        ArrayList bookTwo = new ArrayList();
-        ArrayList<ArrayList> books = new ArrayList<ArrayList>();
-        bookOne.add(1);bookOne.add("Java");bookOne.add("available");bookOne.add("James Gosling");bookOne.add("TMH");
+    public ArrayList<HashMap> addBooks() {
+        HashMap bookOne = new HashMap();
+        HashMap bookTwo = new HashMap();
+        bookOne.put("bookNo", 1);
+        bookOne.put("bookName", "Java");
+        bookOne.put("availability", "available");
+        bookOne.put("author", "James Gosling");
+        bookOne.put("publication", "TMH");
+        bookTwo.put("bookNo", 2);
+        bookTwo.put("bookName", "C++");
+        bookTwo.put("availability", "available");
+        bookTwo.put("author", "James Stroutstrup");
+        bookTwo.put("publication", "TMH");
+        ArrayList<HashMap> books = new ArrayList<HashMap>();
         books.add(bookOne);
-        bookTwo.add(2);bookTwo.add("C++");bookTwo.add("available");bookTwo.add("Bjarne Stroustrup");bookTwo.add("TMH");
         books.add(bookTwo);
         return books;
     }

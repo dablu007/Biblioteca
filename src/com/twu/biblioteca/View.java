@@ -1,16 +1,18 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class View {
     public void showWelcomeMessage(){
         System.out.println("Welcome to The Bangalore Public Library");
     }
 
-    public void showBook(ArrayList book) {
+    public void showBook(HashMap book) {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println(String.format("%s%20s%27s%17s", book.get(0), book.get(1), book.get(3), book.get(4)));
+        System.out.println(String.format("%s%20s%27s%17s", book.get("bookNo"), book.get("bookName"), book.get("author"),
+                book.get("publication")));
     }
 
     public void showListBookMessage() {
