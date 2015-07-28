@@ -5,16 +5,11 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         View view = new View();
-        ArrayList book = new ArrayList();
-        book.add(1);
-        book.add("Java");
-        book.add("available");
-        book.add("James Gosling");
-        book.add("TMH");
-        ArrayList<ArrayList> books = new ArrayList<>();
-        books.add(book);
+        Inputs inputs = new Inputs();
+        ArrayList<ArrayList> books = inputs.addBooks();
         Library library = new Library(books);
         view.showWelcomeMessage();
+        view.showListBookMessage();
         library.showListOfBooks(view);
     }
 }
