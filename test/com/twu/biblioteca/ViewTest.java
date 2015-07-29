@@ -30,15 +30,14 @@ public class ViewTest {
 
     @Test
     public void shouldDisplayBook() {
-        View view = mock(View.class);
+        View view = new View();
         HashMap book = new HashMap();
-        book.put("bookNo",1);
-        book.put("bookName",1);
-        book.put("availability",1);
-        book.put("author",1);
-        book.put("publication",1);
 
+        String expectedOutput = String.format("%s%20s%27s%17s", book.get("bookNo"),
+                                    book.get("bookName"), book.get("author"),
+                book.get("publication"));
         view.showBook(book);
-        verify(view).showBook(book);
+        assertEquals(expectedOutput+"\n",outContent.toString());
     }
+
 }
