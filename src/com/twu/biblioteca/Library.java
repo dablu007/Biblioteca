@@ -18,6 +18,6 @@ public class Library {
     }
 
     public void exit() {
-        System.exit(0);
+        System.exit(1);
     }
 }

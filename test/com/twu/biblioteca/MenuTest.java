@@ -33,6 +33,6 @@ public class MenuTest {
         Menu menu = new Menu(library, new View());
 
         menu.executeCommand(2);
-        verify(library, atLeast(1)).exit();
+        verify(library).exit();
     }
 }

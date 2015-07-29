@@ -16,14 +16,17 @@ public class Main {
         Library library = new Library(books);
         view.showWelcomeMessage();
         view.showOptions();
-        try {
-            System.out.println("Enter Your Choice");
-            int option = Integer.parseInt(br.readLine());
+        int option;
+        while (true){
+            try {
+                System.out.println("Enter Your Choice");
+                option = Integer.parseInt(br.readLine());
+                Menu menu = new Menu(library, view);
+                menu.executeCommand(option);
 
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        Menu menu = new Menu(library, view);
-        menu.executeCommand(1);
     }
 }
