@@ -17,14 +17,15 @@ public class MenuTest {
         book.put("availability", "available");
         book.put("author", "James Gosling");
         book.put("publication", "TMH");
-        View view = mock(View.class);
         ArrayList<HashMap> books = new ArrayList<HashMap>();
         books.add(book);
-        Library library = new Library(books, view);
-        Menu menu = new Menu(library, view);
+        Library library = new Library(books);
+        Formatters formatters = new Formatters(library);
+        IView view = mock(IView.class);
+        Menu menu = new Menu(view);
 
         menu.executeCommand(1);
-        verify(view).showBook(book);
+        verify(view).show();
     }
 
     @Test

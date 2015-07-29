@@ -15,7 +15,6 @@ public class Formatters {
         String value = library.toString();
         map = new HashMap<>();
         String[] bookValueAfterSplit = value.split("::");
-        System.out.println(bookValueAfterSplit[0]);
         ArrayList<HashMap> books = new ArrayList<>();
         for (String s : bookValueAfterSplit) {
             String[] book = s.split(":");
