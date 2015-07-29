@@ -15,10 +15,10 @@ public class Main {
         ArrayList<HashMap> books = inputs.addBooks();
         Library library = new Library(books, view);
         view.showWelcomeMessage();
-        view.showOptions();
         int option;
         while (true){
             try {
+                view.showOptions();
                 System.out.println("Enter Your Choice");
                 option = Integer.parseInt(br.readLine());
                 Menu menu = new Menu(library, view);

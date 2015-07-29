@@ -34,8 +34,9 @@ public class ViewTest {
         String expectedOutput = String.format("%s%20s%27s%17s", book.get("bookNo"),
                                     book.get("bookName"), book.get("author"),
                 book.get("publication"));
+        expectedOutput = expectedOutput + "\n----------------------------------------------------------------------\n";
         view.showBook(book);
-        assertEquals(expectedOutput+"\n",outContent.toString());
+        assertEquals(expectedOutput, outContent.toString());
     }
 
     @Test

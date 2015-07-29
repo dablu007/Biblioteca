@@ -46,14 +46,4 @@ public class MenuTest {
         menu.executeCommand(10);
         verify(view).showInvalidMessage();
     }
-
-    @Test
-    public void shouldCheckoutBookUsingMenuOption() {
-        Library library = mock(Library.class);
-        View view = mock(View.class);
-        Menu menu = new Menu(library, view);
-
-        menu.executeCommand(2);
-        verify(view).showCheckOutMessage();
-    }
 }

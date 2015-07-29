@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 
 public class View {
+
     public void showWelcomeMessage(){
         System.out.println("Welcome to The Bangalore Public Library");
     }
@@ -11,6 +12,7 @@ public class View {
     public void showBook(HashMap book) {
         System.out.println(String.format("%s%20s%27s%17s", book.get("bookNo"), book.get("bookName"), book.get("author"),
                 book.get("publication")));
+        System.out.println("----------------------------------------------------------------------");
     }
 
     public void showListBookMessage() {

@@ -1,13 +1,10 @@
 package com.twu.biblioteca;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Menu {
     private Library library;
     private View view;
-
+    private Inputs inputs;
     public Menu(Library library,View view) {
         this.library = library;
         this.view = view;
@@ -18,7 +15,7 @@ public class Menu {
             this.library.showListOfBooks();
         }
         else if (command == 2){
-            int bookno = getBookNoForCheckout();
+            int bookno = new Inputs().getBookNoForCheckout();
             this.library.checkoutBook(bookno);
         }
         else if (command == 3){
@@ -27,16 +24,5 @@ public class Menu {
         else {
             view.showInvalidMessage();
         }
-    }
-    private int getBookNoForCheckout() {
-        int bookNoForCheckout = 0;
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            bookNoForCheckout = Integer.parseInt(bufferedReader.readLine());
-            return bookNoForCheckout;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return bookNoForCheckout;
     }
 }
