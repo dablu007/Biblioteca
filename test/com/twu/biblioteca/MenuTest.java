@@ -22,7 +22,7 @@ public class MenuTest {
         Library library = new Library(books);
         Formatters formatters = new Formatters(library);
         IView view = mock(IView.class);
-        Menu menu = new Menu(view);
+        Menu menu = new Menu(library, view);
 
         menu.executeCommand(1);
         verify(view).show();
@@ -31,7 +31,7 @@ public class MenuTest {
     @Test
     public void shouldExitWhenTheCommandIsQuit() {
         Library library = mock(Library.class);
-        View view = mock(View.class);
+        IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 
         menu.executeCommand(3);
@@ -41,10 +41,10 @@ public class MenuTest {
     @Test
     public void shouldShowInvalidWhenMenuOptionIsInvalid() {
         Library library = mock(Library.class);
-        View view = mock(View.class);
+        IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 
         menu.executeCommand(10);
-        verify(view).showInvalidMessage();
+        verify(view).show();
     }
 }

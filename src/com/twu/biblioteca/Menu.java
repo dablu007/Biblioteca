@@ -3,26 +3,16 @@ package com.twu.biblioteca;
 
 public class Menu {
     private Library library;
-    private View view;
-    private Inputs inputs;
-    private IView viewBookList;
+    private IView view;
 
     public Menu(Library library,IView view) {
         this.library = library;
-        this.viewBookList = view;
-    }
-
-    public Menu(IView view) {
-        viewBookList = view;
-    }
-
-    public Menu(Library library, View view) {
-
+        this.view = view;
     }
 
     public void executeCommand(int command) {
         if (command == 1){
-            viewBookList.show();
+            view.show();
         }
         else if (command == 2){
             int bookno = new Inputs().getBookNoForCheckout();
@@ -32,7 +22,8 @@ public class Menu {
             this.library.exit();
         }
         else {
-            view.showInvalidMessage();
+            view = new ViewInvalidMessage();
+            view.show();
         }
     }
 }
