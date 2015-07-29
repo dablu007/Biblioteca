@@ -17,5 +17,18 @@
             <test name="com.twu.biblioteca.LibraryTest" haltonfailure="true" haltonerror="true"/>
         </junit>
     </target>
+    <target name ="createJar" depends="compile">
+        <jar destfile="lib/app.jar"
+             basedir="antBuild"
+             excludes="**/Test.class"/>
+    </target>
 
+    <target name="run" depends="createJar">
+        <java classname="com.twu.biblioteca.Main">
+            <classpath>
+                <pathelement location="lib/app.jar"/>
+                <pathelement path="${java.class.path}"/>
+            </classpath>
+        </java>
+    </target>
 </project>
