@@ -4,12 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 
 public class ViewTest {
@@ -48,5 +45,13 @@ public class ViewTest {
         view.showOptions();
         String expectedOutput = "1.List Books\n" + "2.Checkout a Book\n" + "3.Quit\n";
         assertEquals(expectedOutput, outContent.toString());
+    }
+
+    @Test
+    public void shouldDisplayCheckoutMessage() {
+        View view = new View();
+
+        view.showCheckOutMessage();
+        assertEquals("Books Successfully Checkout\n", outContent.toString());
     }
 }
