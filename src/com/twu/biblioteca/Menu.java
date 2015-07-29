@@ -14,5 +14,7 @@ public class Menu {
             this.library.showListOfBooks(view);
         else if (command == 2)
             this.library.exit();
+        else
+            view.showInvalidMessage();
     }
 }

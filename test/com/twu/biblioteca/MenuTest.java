@@ -30,9 +30,20 @@ public class MenuTest {
     @Test
     public void shouldExitWhenTheCommandIsQuit() {
         Library library = mock(Library.class);
-        Menu menu = new Menu(library, new View());
+        View view = mock(View.class);
+        Menu menu = new Menu(library, view);
 
         menu.executeCommand(2);
         verify(library).exit();
+    }
+
+    @Test
+    public void shouldShowInvalidWhenMenuOptionIsInvalid() {
+        Library library = mock(Library.class);
+        View view = mock(View.class);
+        Menu menu = new Menu(library, view);
+
+        menu.executeCommand(10);
+        verify(view).showInvalidMessage();
     }
 }

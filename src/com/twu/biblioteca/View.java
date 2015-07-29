@@ -24,4 +24,8 @@ public class View {
         System.out.println("1.List Books");
         System.out.println("2.Quit");
     }
+
+    public void showInvalidMessage() {
+        System.out.println("Select a valid option!");
+    }
 }
