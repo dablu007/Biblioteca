@@ -4,8 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 
 public class MenuTest {
@@ -22,9 +21,18 @@ public class MenuTest {
         ArrayList<HashMap> books = new ArrayList<HashMap>();
         books.add(book);
         Library library = new Library(books);
-        Menu menu = new Menu(library,view);
+        Menu menu = new Menu(library, view);
 
         menu.executeCommand(1);
         verify(view).showBook(book);
+    }
+
+    @Test
+    public void shouldExitWhenTheCommandIsQuit() {
+        Library library = mock(Library.class);
+        Menu menu = new Menu(library, new View());
+
+        menu.executeCommand(2);
+        verify(library, atLeast(1)).exit();
     }
 }

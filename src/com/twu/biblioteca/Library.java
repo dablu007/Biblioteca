@@ -16,4 +16,8 @@ public class Library {
             view.showBook(books.get(i));
         }
     }
+
+    public void exit() {
+        System.exit(0);
+    }
 }
