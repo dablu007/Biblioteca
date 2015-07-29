@@ -22,7 +22,8 @@ public class View {
 
     public void showOptions() {
         System.out.println("1.List Books");
-        System.out.println("2.Quit");
+        System.out.println("2.Checkout a Book");
+        System.out.println("3.Quit");
     }
 
     public void showInvalidMessage() {
