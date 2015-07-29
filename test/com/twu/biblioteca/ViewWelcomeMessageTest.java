@@ -8,7 +8,7 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class WelcomeMessageTest {
+public class ViewWelcomeMessageTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -18,9 +18,9 @@ public class WelcomeMessageTest {
 
     @Test
     public void shouldTestTheWelcomeMessage() {
-        WelcomeMessage welcomeMessage = new WelcomeMessage();
+        ViewWelcomeMessage viewWelcomeMessage = new ViewWelcomeMessage();
 
-        welcomeMessage.show();
+        viewWelcomeMessage.show();
         assertEquals("Welcome to The Bangalore Public Library\n",outContent.toString());
     }
 }

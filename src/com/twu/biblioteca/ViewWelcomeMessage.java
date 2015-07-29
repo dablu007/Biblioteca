@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class WelcomeMessage implements IView{
+public class ViewWelcomeMessage implements IView{
 
     @Override
     public void show() {

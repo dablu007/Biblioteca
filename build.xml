@@ -13,7 +13,10 @@
             <classpath location="lib/hamcrest-core-1.3.jar" path="antBuild"/>
             <classpath location="lib/junit-4.11.jar" path="antBuild"/>
             <classpath location="lib/mockito-all-1.9.5.jar" path="antBuild"/>
-            <test name="com.twu.biblioteca.ViewTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.ViewInvalidMessageTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.ViewWelcomeMessageTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.ViewListOfBooksTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.ViewCheckoutBookTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.LibraryTest" haltonfailure="true" haltonerror="true"/>
         </junit>
     </target>
