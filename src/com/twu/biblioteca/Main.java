@@ -13,7 +13,7 @@ public class Main {
         View view = new View();
         Inputs inputs = new Inputs();
         ArrayList<HashMap> books = inputs.addBooks();
-        Library library = new Library(books);
+        Library library = new Library(books, view);
         view.showWelcomeMessage();
         view.showOptions();
         int option;

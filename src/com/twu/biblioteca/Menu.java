@@ -11,7 +11,7 @@ public class Menu {
 
     public void executeCommand(int command) {
         if (command == 1)
-            this.library.showListOfBooks(view);
+            this.library.showListOfBooks();
         else if (command == 2)
             this.library.exit();
         else

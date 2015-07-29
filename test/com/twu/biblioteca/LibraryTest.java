@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,21 +11,33 @@ import static org.mockito.Mockito.verify;
 
 
 public class LibraryTest {
-    @Test
-    public void shouldAddABookAndShowListOfBooksInTheLibrary() {
-        HashMap book = new HashMap();
+    private HashMap book;
+    private ArrayList<HashMap> books;
+    private View view;
+    private Library library;
+    @Before
+    public void setUp(){
+        book = new HashMap();
         book.put("bookNo", 1);
         book.put("bookName", "Java");
         book.put("availability", "available");
         book.put("author", "James Gosling");
         book.put("publication", "TMH");
-        View view = mock(View.class);
-        ArrayList<HashMap> books = new ArrayList<HashMap>();
+        view = mock(View.class);
+        books = new ArrayList<HashMap>();
         books.add(book);
-        Library library = new Library(books);
+        library = new Library(books, view);
 
-        library.showListOfBooks(view);
-
+    }
+    @Test
+    public void shouldAddABookAndShowListOfBooksInTheLibrary() {
+        library.showListOfBooks();
         verify(view, atLeast(1)).showBook(book);
+    }
+
+    @Test
+    public void shouldCheckOutABook() {
+        library.checkoutBook(1);
+        verify(view).showCheckOutMessage();
     }
 }

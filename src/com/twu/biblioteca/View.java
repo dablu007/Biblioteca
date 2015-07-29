@@ -28,4 +28,8 @@ public class View {
     public void showInvalidMessage() {
         System.out.println("Select a valid option!");
     }
+
+    public void showCheckOutMessage() {
+        System.out.println("Books Successfully Checkout");
+    }
 }

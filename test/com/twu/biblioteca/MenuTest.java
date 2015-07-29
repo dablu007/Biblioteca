@@ -20,7 +20,7 @@ public class MenuTest {
         View view = mock(View.class);
         ArrayList<HashMap> books = new ArrayList<HashMap>();
         books.add(book);
-        Library library = new Library(books);
+        Library library = new Library(books, view);
         Menu menu = new Menu(library, view);
 
         menu.executeCommand(1);
