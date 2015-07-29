@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,5 +24,17 @@ public class Inputs {
         books.add(bookOne);
         books.add(bookTwo);
         return books;
+    }
+
+    public int getBookNoForCheckout() {
+        int bookNoForCheckout = 0;
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            bookNoForCheckout = Integer.parseInt(bufferedReader.readLine());
+            return bookNoForCheckout;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bookNoForCheckout;
     }
 }

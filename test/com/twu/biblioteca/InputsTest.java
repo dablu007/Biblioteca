@@ -1,14 +1,30 @@
 package com.twu.biblioteca;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 
 public class InputsTest {
+    private ByteArrayInputStream inputStream = new ByteArrayInputStream("1".getBytes());
+
+    @Before
+    public void setUpStreams() {
+        System.setIn(inputStream);
+    }
+
+    @After
+    public void setAfter(){
+        System.setIn(System.in);
+    }
+
     @Test
     public void shouldAddBooksInitiallyToTheLibrary() {
         HashMap bookOne = new HashMap();
@@ -28,5 +44,12 @@ public class InputsTest {
         books.add(bookTwo);
         Inputs input = new Inputs();
         assertEquals(books, input.addBooks());
+    }
+
+    @Test
+    public void shouldTestTheBookNumberForCheckout() {
+        Inputs inputs = new Inputs();
+
+        assertEquals(1, inputs.getBookNoForCheckout());
     }
 }
