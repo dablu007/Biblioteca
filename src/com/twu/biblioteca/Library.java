@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 public class Library {
     private ArrayList<HashMap> books;
-    private View view;
+
     public Library(ArrayList<HashMap> books) {
         this.books = books;
-        view = new View();
+
     }
 
     public void exit() {

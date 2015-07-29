@@ -9,21 +9,21 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        View view = new View();
-        IView welcomeView = new WelcomeMessage();
+        IView welcomeView = new ViewWelcomeMessage();
         Inputs inputs = new Inputs();
         ArrayList<HashMap> books = inputs.addBooks();
         Library library = new Library(books);
         Formatters formatters = new Formatters(library);
-        IView listBooksView = new ViewListOfBooks(formatters);
+        IView listBooks = new ViewListOfBooks(formatters);
+        IView optionsView = new ViewShowOptions();
         welcomeView.show();
         int option;
         while (true){
             try {
-                view.showOptions();
+                optionsView.show();
                 System.out.println("Enter Your Choice");
                 option = Integer.parseInt(br.readLine());
-                Menu menu = new Menu(library, listBooksView);
+                Menu menu = new Menu(library, listBooks);
                 menu.executeCommand(option);
 
             } catch (IOException e) {
