@@ -28,6 +28,7 @@ public class ViewTest {
         assertEquals("Welcome to The Bangalore Public Library\n",outContent.toString());
     }
 
+
     @Test
     public void shouldDisplayBook() {
         View view = new View();
@@ -40,4 +41,12 @@ public class ViewTest {
         assertEquals(expectedOutput+"\n",outContent.toString());
     }
 
+    @Test
+    public void shouldDisplayMenuOptions() {
+        View view = new View();
+
+        view.showOptions();
+        String expectedOutput = "1.List Books\n" + "2.Checkout a Book\n" + "3.Quit\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
 }
