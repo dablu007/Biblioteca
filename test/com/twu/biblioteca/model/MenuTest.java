@@ -5,6 +5,7 @@ import com.twu.biblioteca.view.ViewInvalidMessage;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -17,9 +18,11 @@ import static org.mockito.Mockito.*;
 public class MenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayInputStream inputContent = new ByteArrayInputStream("1".getBytes());
 
     @Before
     public void setUpStreams() {
+        System.setIn(inputContent);
         System.setOut(new PrintStream(outContent));
     }
 
@@ -69,5 +72,18 @@ public class MenuTest {
         Menu menu = new Menu(library, view);
 
         menu.executeCommand(null);
+    }
+
+    @Test
+    public void shouldCheckoutAValidBook(){
+        Library library = mock(Library.class);
+        IView view = mock(IView.class);
+        Inputs inputs = mock(Inputs.class);
+        Menu menu = new Menu(library, view);
+
+
+        menu.executeCommand(2);
+        assertEquals("Enter A Book Number\n", outContent.toString());
+        verify(library).checkoutBook("1");
     }
 }
