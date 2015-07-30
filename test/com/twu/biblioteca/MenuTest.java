@@ -1,13 +1,25 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 
 public class MenuTest {
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     @Test
     public void shouldExecuteACommandWithMenu() {
@@ -41,10 +53,10 @@ public class MenuTest {
     @Test
     public void shouldShowInvalidWhenMenuOptionIsInvalid() {
         Library library = mock(Library.class);
-        IView view = mock(IView.class);
+        IView view = new ViewInvalidMessage();
         Menu menu = new Menu(library, view);
 
         menu.executeCommand(10);
-        verify(view).show();
+        assertEquals("Select a valid option!\n", outContent.toString());
     }
 }

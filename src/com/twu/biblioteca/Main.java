@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
+
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         IView welcomeView = new ViewWelcomeMessage();
@@ -18,6 +19,7 @@ public class Main {
         IView optionsView = new ViewShowOptions();
         welcomeView.show();
         int option;
+
         while (true){
             try {
                 optionsView.show();
