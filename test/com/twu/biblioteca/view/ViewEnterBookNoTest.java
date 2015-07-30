@@ -7,7 +7,6 @@ import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
-
 public class ViewEnterBookNoTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -21,6 +20,6 @@ public class ViewEnterBookNoTest {
         IView view = new ViewEnterBookNo();
 
         view.show();
-        assertEquals("Enter A Book Number For Checkout", outContent.toString());
+        assertEquals("Enter A Book Number For Checkout\n", outContent.toString());
     }
 }

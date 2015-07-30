@@ -1,19 +1,13 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.model.Formatter;
-import com.twu.biblioteca.model.Inputs;
-import com.twu.biblioteca.model.Library;
-import com.twu.biblioteca.model.Menu;
-import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.ViewListOfBooks;
-import com.twu.biblioteca.view.ViewShowOptions;
-import com.twu.biblioteca.view.ViewWelcomeMessage;
-
+import com.twu.biblioteca.model.*;
+import com.twu.biblioteca.view.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 public class Main {
 

@@ -22,6 +22,7 @@ public class Menu {
         }
         else if (command == 2){
             view = new ViewEnterBookNo();
+            view.show();
             int bookno = new Inputs().getBookNoForCheckout();
             this.library.checkoutBook(bookno);
         }
