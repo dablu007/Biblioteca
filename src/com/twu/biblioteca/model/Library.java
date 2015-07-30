@@ -31,7 +31,7 @@ public class Library {
         boolean checkout = false;
         for (int i = 0; i < books.size(); i++) {
             book = books.get(i);
-            if (book.get("bookNo") == bookNo && book.get("availability").equals("available")){
+            if (book.get("bookNo").equals(bookNo) && book.get("availability").equals("available")){
                 book.remove("availability");
                 book.put("availability", "not-available");
                 checkout = true;
@@ -50,7 +50,7 @@ public class Library {
         boolean returned = false;
         for (int i = 0; i < books.size(); i++) {
             book = books.get(i);
-            if (book.get("bookNo") == bookNo && book.get("availability").equals("not-available")){
+            if (book.get("bookNo").equals(bookNo) && book.get("availability").equals("not-available")){
                 book.remove("availability");
                 book.put("availability", "available");
                 returned = true;
