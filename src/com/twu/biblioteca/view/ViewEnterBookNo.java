@@ -4,6 +4,6 @@ public class ViewEnterBookNo implements IView {
 
     @Override
     public void show() {
-        System.out.println("Enter A Book Number For Checkout");
+        System.out.println("Enter A Book Number");
     }
 }
