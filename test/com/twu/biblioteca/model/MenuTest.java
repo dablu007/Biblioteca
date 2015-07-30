@@ -41,7 +41,7 @@ public class MenuTest {
         IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 
-        menu.executeCommand(1);
+        menu.executeCommand("1");
         verify(view).show();
     }
 
@@ -51,7 +51,7 @@ public class MenuTest {
         IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 
-        menu.executeCommand(4);
+        menu.executeCommand("4");
         verify(library).exit();
     }
 
@@ -61,7 +61,7 @@ public class MenuTest {
         IView view = new ViewInvalidMessage();
         Menu menu = new Menu(library, view);
 
-        menu.executeCommand(10);
+        menu.executeCommand("10");
         assertEquals("Select a valid option!\n", outContent.toString());
     }
 
@@ -82,7 +82,7 @@ public class MenuTest {
         Menu menu = new Menu(library, view);
 
 
-        menu.executeCommand(2);
+        menu.executeCommand("2");
         assertEquals("Enter A Book Number\n", outContent.toString());
         verify(library).checkoutBook("1");
     }
@@ -95,8 +95,18 @@ public class MenuTest {
         Menu menu = new Menu(library, view);
 
 
-        menu.executeCommand(3);
+        menu.executeCommand("3");
         assertEquals("Enter A Book Number\n", outContent.toString());
         verify(library).returnBook("1");
+    }
+
+    @Test
+    public void showInvalidMenuWhenOptionEnteredIsNotValid() {
+        Library library = mock(Library.class);
+        IView view = new ViewInvalidMessage();
+        Menu menu = new Menu(library, view);
+
+        menu.executeCommand("list books not");
+        assertEquals("Select a valid option!\n", outContent.toString());
     }
 }

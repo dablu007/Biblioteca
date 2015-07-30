@@ -15,25 +15,25 @@ public class Menu {
         this.view = view;
     }
 
-    public void executeCommand(Integer command) {
+    public void executeCommand(String command) {
         if (command == null)
             return;
-        else if (command == 1){
+        else if (command.equals("1")){
             view.show();
         }
-        else if (command == 2){
+        else if (command.equals("2")){
             view = new ViewEnterBookNo();
             view.show();
             String bookno = new Inputs().getBookNo();
             this.library.checkoutBook(bookno);
         }
-        else if (command == 3){
+        else if (command.equals("3")){
             view = new ViewEnterBookNo();
             view.show();
             String bookno = new Inputs().getBookNo();
             this.library.returnBook(bookno);
         }
-        else if (command == 4){
+        else if (command.equals("4")){
             this.library.exit();
         }
         else {

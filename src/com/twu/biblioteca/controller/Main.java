@@ -21,13 +21,13 @@ public class Main {
         IView listBooks = new ViewListOfBooks(formatter);
         IView optionsView = new ViewShowOptions();
         welcomeView.show();
-        int option;
+        String  option;
 
         while (true){
             try {
                 optionsView.show();
                 System.out.println("Enter Your Choice");
-                option = Integer.parseInt(br.readLine());
+                option = br.readLine();
                 Menu menu = new Menu(library, listBooks);
                 menu.executeCommand(option);
 
