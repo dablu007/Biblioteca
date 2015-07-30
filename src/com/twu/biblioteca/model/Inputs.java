@@ -10,12 +10,12 @@ public class Inputs {
     public ArrayList<HashMap> addBooks() {
         HashMap bookOne = new HashMap();
         HashMap bookTwo = new HashMap();
-        bookOne.put("bookNo", 1);
+        bookOne.put("bookNo", "1");
         bookOne.put("bookName", "Java");
         bookOne.put("availability", "available");
         bookOne.put("author", "James Gosling");
         bookOne.put("publication", "TMH");
-        bookTwo.put("bookNo", 2);
+        bookTwo.put("bookNo", "2");
         bookTwo.put("bookName", "C++");
         bookTwo.put("availability", "available");
         bookTwo.put("author", "James Stroutstrup");
@@ -26,11 +26,11 @@ public class Inputs {
         return books;
     }
 
-    public int getBookNo() {
-        int bookNoForCheckout = 0;
+    public String getBookNo() {
+        String bookNoForCheckout = new String();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            bookNoForCheckout = Integer.parseInt(bufferedReader.readLine());
+            bookNoForCheckout = bufferedReader.readLine();
             return bookNoForCheckout;
         } catch (IOException e) {
             e.printStackTrace();

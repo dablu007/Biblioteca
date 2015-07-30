@@ -23,7 +23,7 @@ public class LibraryTest {
     @Before
     public void setUp(){
         book = new HashMap();
-        book.put("bookNo", 1);
+        book.put("bookNo", "1");
         book.put("bookName", "Java");
         book.put("availability", "available");
         book.put("author", "James Gosling");
@@ -37,14 +37,14 @@ public class LibraryTest {
 
     @Test
     public void shouldCheckoutABook() {
-        library.checkoutBook(1);
+        library.checkoutBook("1");
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 
     @Test
     public void shouldReturnABookIfBookReturningIsCheckedOut(){
         HashMap anotherBook = new HashMap();
-        anotherBook.put("bookNo", 1);
+        anotherBook.put("bookNo", "1");
         anotherBook.put("bookName", "Java");
         anotherBook.put("availability", "not-available");
         anotherBook.put("author", "James Gosling");
@@ -53,7 +53,7 @@ public class LibraryTest {
         ArrayList<HashMap> anotherBooks = new ArrayList<HashMap>();
         anotherBooks.add(anotherBook);
         Library anotherlibrary = new Library(anotherBooks);
-        anotherlibrary.returnBook(1);
+        anotherlibrary.returnBook("1");
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
 }

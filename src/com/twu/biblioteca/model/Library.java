@@ -24,7 +24,7 @@ public class Library {
         return books;
     }
 
-    public void checkoutBook(int bookNo) {
+    public void checkoutBook(String bookNo) {
         HashMap book;
         IView checkoutBook = new ViewCheckoutBook();
         IView notCheckoutBook = new ViewNotCheckoutBook();
@@ -44,7 +44,7 @@ public class Library {
     }
 
 
-    public void returnBook(int bookNo) {
+    public void returnBook(String bookNo) {
         HashMap book;
         IView view = new ViewReturnBook();
         boolean returned = false;

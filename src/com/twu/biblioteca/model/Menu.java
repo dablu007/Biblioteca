@@ -24,13 +24,13 @@ public class Menu {
         else if (command == 2){
             view = new ViewEnterBookNo();
             view.show();
-            int bookno = new Inputs().getBookNo();
+            String bookno = new Inputs().getBookNo();
             this.library.checkoutBook(bookno);
         }
         else if (command == 3){
             view = new ViewEnterBookNo();
             view.show();
-            int bookno = new Inputs().getBookNo();
+            String bookno = new Inputs().getBookNo();
             this.library.returnBook(bookno);
         }
         else if (command == 4){

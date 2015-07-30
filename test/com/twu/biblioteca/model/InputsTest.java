@@ -27,12 +27,12 @@ public class InputsTest {
     public void shouldAddBooksInitiallyToTheLibrary() {
         HashMap bookOne = new HashMap();
         HashMap bookTwo = new HashMap();
-        bookOne.put("bookNo", 1);
+        bookOne.put("bookNo", "1");
         bookOne.put("bookName", "Java");
         bookOne.put("availability", "available");
         bookOne.put("author", "James Gosling");
         bookOne.put("publication", "TMH");
-        bookTwo.put("bookNo", 2);
+        bookTwo.put("bookNo", "2");
         bookTwo.put("bookName", "C++");
         bookTwo.put("availability", "available");
         bookTwo.put("author", "James Stroutstrup");
@@ -48,6 +48,6 @@ public class InputsTest {
     public void shouldTestTheBookNumberForCheckout() {
         Inputs inputs = new Inputs();
 
-        assertEquals(1, inputs.getBookNo());
+        assertEquals("1", inputs.getBookNo());
     }
 }
