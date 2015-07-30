@@ -48,7 +48,7 @@ public class MenuTest {
         IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 
-        menu.executeCommand(3);
+        menu.executeCommand(4);
         verify(library).exit();
     }
 

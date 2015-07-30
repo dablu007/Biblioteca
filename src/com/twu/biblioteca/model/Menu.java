@@ -5,6 +5,7 @@ import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.ViewEnterBookNo;
 import com.twu.biblioteca.view.ViewInvalidMessage;
 
+
 public class Menu {
     private Library library;
     private IView view;
@@ -23,10 +24,16 @@ public class Menu {
         else if (command == 2){
             view = new ViewEnterBookNo();
             view.show();
-            int bookno = new Inputs().getBookNoForCheckout();
+            int bookno = new Inputs().getBookNo();
             this.library.checkoutBook(bookno);
         }
         else if (command == 3){
+            view = new ViewEnterBookNo();
+            view.show();
+            int bookno = new Inputs().getBookNo();
+            this.library.returnBook(bookno);
+        }
+        else if (command == 4){
             this.library.exit();
         }
         else {

@@ -48,6 +48,6 @@ public class InputsTest {
     public void shouldTestTheBookNumberForCheckout() {
         Inputs inputs = new Inputs();
 
-        assertEquals(1, inputs.getBookNoForCheckout());
+        assertEquals(1, inputs.getBookNo());
     }
 }

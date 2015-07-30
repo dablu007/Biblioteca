@@ -26,7 +26,7 @@ public class Inputs {
         return books;
     }
 
-    public int getBookNoForCheckout() {
+    public int getBookNo() {
         int bookNoForCheckout = 0;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         try {
