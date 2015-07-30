@@ -4,7 +4,6 @@ import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.ViewInvalidMessage;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -78,7 +77,6 @@ public class MenuTest {
     public void shouldCheckoutAValidBook(){
         Library library = mock(Library.class);
         IView view = mock(IView.class);
-        Inputs inputs = mock(Inputs.class);
         Menu menu = new Menu(library, view);
 
 
@@ -91,7 +89,6 @@ public class MenuTest {
     public void shouldReturnAValidBook() {
         Library library = mock(Library.class);
         IView view = mock(IView.class);
-        Inputs inputs = mock(Inputs.class);
         Menu menu = new Menu(library, view);
 
 
