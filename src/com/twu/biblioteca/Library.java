@@ -15,6 +15,10 @@ public class Library {
         System.exit(1);
     }
 
+    public ArrayList<HashMap> getBooks() {
+        return books;
+    }
+
     public void checkoutBook(int bookNo) {
         HashMap book;
         IView view = new ViewCheckoutBook();

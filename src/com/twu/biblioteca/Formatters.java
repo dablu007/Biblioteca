@@ -4,31 +4,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Formatters {
+    private ArrayList<HashMap> books;
     private Library library;
-    private HashMap map;
+    private HashMap book;
     public Formatters(Library library) {
         this.library = library;
     }
 
     public ArrayList<HashMap> format() {
-        map = new HashMap();
-        String value = library.toString();
-        map = new HashMap<>();
-        String[] bookValueAfterSplit = value.split("::");
-        ArrayList<HashMap> books = new ArrayList<>();
-        for (String s : bookValueAfterSplit) {
-            String[] book = s.split(":");
-            if (book[3].equals("not-available")) {
+        ArrayList<HashMap> newBooks = new ArrayList<>();
+        books = library.getBooks();
+        book = new HashMap();
+        for (int i = 0; i < books.size(); i++) {
+            book = books.get(i);
+            if (book.get("availability").equals("not-available"))
                 continue;
-            }
-            map = new HashMap();
-            map.put("author",book[0]);
-            map.put("bookNo",book[1]);
-            map.put("bookName",book[4]);
-            map.put("availability",book[3]);
-            map.put("publication",book[2]);
-            books.add(map);
+            newBooks.add(book);
         }
-        return books;
+        return newBooks;
     }
 }

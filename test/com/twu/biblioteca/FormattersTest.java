@@ -34,7 +34,7 @@ public class FormattersTest {
         books.add(book1);
         library = new Library(books);
         Formatters formatters = new Formatters(library);
-        assertEquals(books.toString(), formatters.format().toString());
+        assertEquals(books, formatters.format());
     }
 
     @Test
@@ -56,9 +56,8 @@ public class FormattersTest {
         books.add(book1);
         library = new Library(books);
         Formatters formatters = new Formatters(library);
-
-        String expectedBooks = "[{author=James Gosling, bookNo=2, publication=TMH, " +
-                "availability=available, bookName=C++}]";
-        assertEquals(expectedBooks, formatters.format().toString());
+        ArrayList<HashMap> expectedBooks = new ArrayList();
+        expectedBooks.add(book1);
+        assertEquals(expectedBooks, formatters.format());
     }
 }
