@@ -4,6 +4,6 @@ public class ViewCheckoutBook implements IView {
 
     @Override
     public void show() {
-        System.out.println("Books Successfully Checkout");
+        System.out.println("Thank you! Enjoy the book");
     }
 }

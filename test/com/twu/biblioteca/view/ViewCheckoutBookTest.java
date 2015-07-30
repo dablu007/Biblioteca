@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.ViewCheckoutBook;
@@ -21,6 +21,6 @@ public class ViewCheckoutBookTest {
     public void shouldShowCheckoutMessageForCheckout() {
         IView viewCheckoutBook = new ViewCheckoutBook();
         viewCheckoutBook.show();
-        assertEquals("Books Successfully Checkout\n", outContent.toString());
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 }
