@@ -1,9 +1,6 @@
 package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.ViewCheckoutBook;
-import com.twu.biblioteca.view.ViewNotCheckoutBook;
-import com.twu.biblioteca.view.ViewReturnBook;
+import com.twu.biblioteca.view.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,7 +43,8 @@ public class Library {
 
     public void returnBook(String bookNo) {
         HashMap book;
-        IView view = new ViewReturnBook();
+        IView notReturnBook = new ViewNotReturnBook();
+        IView returnBook = new ViewReturnBook();
         boolean returned = false;
         for (int i = 0; i < books.size(); i++) {
             book = books.get(i);
@@ -54,10 +52,12 @@ public class Library {
                 book.remove("availability");
                 book.put("availability", "available");
                 returned = true;
-                view.show();
+                returnBook.show();
                 return ;
             }
         }
+        if (!returned)
+            notReturnBook.show();
     }
 
     @Override
