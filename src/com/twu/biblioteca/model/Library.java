@@ -1,4 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
+
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.ViewCheckoutBook;
 
 import java.util.ArrayList;
 import java.util.HashMap;

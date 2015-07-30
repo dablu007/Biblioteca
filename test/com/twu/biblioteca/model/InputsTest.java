@@ -1,12 +1,11 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.model.Inputs;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 

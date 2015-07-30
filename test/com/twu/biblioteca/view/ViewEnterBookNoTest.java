@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -8,8 +8,7 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 
-public class ViewShowOptionsTest {
-
+public class ViewEnterBookNoTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -18,11 +17,10 @@ public class ViewShowOptionsTest {
     }
 
     @Test
-    public void shouldShowTheMenuOptions() {
-        IView view = new ViewShowOptions();
+    public void shouldAskForABookNumber() {
+        IView view = new ViewEnterBookNo();
 
         view.show();
-        String expected = "1.List Books\n" + "2.Checkout a Book\n" + "3.Quit\n";
-        assertEquals(expected, outContent.toString());
+        assertEquals("Enter A Book Number For Checkout", outContent.toString());
     }
 }

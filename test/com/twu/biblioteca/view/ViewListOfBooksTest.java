@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.model.Formatter;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.view.ViewListOfBooks;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,8 +34,8 @@ public class ViewListOfBooksTest {
         ArrayList<HashMap> books = new ArrayList<HashMap>();
         books.add(book);
         Library library = new Library(books);
-        Formatters formatters = new Formatters(library);
-        ViewListOfBooks viewListOfBooks = new ViewListOfBooks(formatters);
+        Formatter formatter = new Formatter(library);
+        ViewListOfBooks viewListOfBooks = new ViewListOfBooks(formatter);
         viewListOfBooks.show();
 
         String expectedList = "------------------------------Avilable Books--------------------------\n"

@@ -1,4 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.controller;
+
+import com.twu.biblioteca.model.Formatter;
+import com.twu.biblioteca.model.Inputs;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.Menu;
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.ViewListOfBooks;
+import com.twu.biblioteca.view.ViewShowOptions;
+import com.twu.biblioteca.view.ViewWelcomeMessage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,8 +23,8 @@ public class Main {
         Inputs inputs = new Inputs();
         ArrayList<HashMap> books = inputs.addBooks();
         Library library = new Library(books);
-        Formatters formatters = new Formatters(library);
-        IView listBooks = new ViewListOfBooks(formatters);
+        Formatter formatter = new Formatter(library);
+        IView listBooks = new ViewListOfBooks(formatter);
         IView optionsView = new ViewShowOptions();
         welcomeView.show();
         int option;

@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.model.Formatter;
+import com.twu.biblioteca.model.Library;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
-public class FormattersTest {
+public class FormatterTest {
     private HashMap book;
     private ArrayList<HashMap> books;
     private Library library;
@@ -33,8 +35,8 @@ public class FormattersTest {
         books.add(book);
         books.add(book1);
         library = new Library(books);
-        Formatters formatters = new Formatters(library);
-        assertEquals(books, formatters.format());
+        Formatter formatter = new Formatter(library);
+        assertEquals(books, formatter.format());
     }
 
     @Test
@@ -55,9 +57,9 @@ public class FormattersTest {
         books.add(book);
         books.add(book1);
         library = new Library(books);
-        Formatters formatters = new Formatters(library);
+        Formatter formatter = new Formatter(library);
         ArrayList<HashMap> expectedBooks = new ArrayList();
         expectedBooks.add(book1);
-        assertEquals(expectedBooks, formatters.format());
+        assertEquals(expectedBooks, formatter.format());
     }
 }

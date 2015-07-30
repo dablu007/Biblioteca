@@ -1,5 +1,10 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.model.Formatter;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.Menu;
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.ViewInvalidMessage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +38,7 @@ public class MenuTest {
         ArrayList<HashMap> books = new ArrayList<HashMap>();
         books.add(book);
         Library library = new Library(books);
-        Formatters formatters = new Formatters(library);
+        Formatter formatter = new Formatter(library);
         IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 

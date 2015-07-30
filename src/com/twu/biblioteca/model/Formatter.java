@@ -1,13 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Formatters {
+public class Formatter {
     private ArrayList<HashMap> books;
     private Library library;
     private HashMap book;
-    public Formatters(Library library) {
+    public Formatter(Library library) {
         this.library = library;
     }
 

@@ -1,5 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
+
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.ViewEnterBookNo;
+import com.twu.biblioteca.view.ViewInvalidMessage;
 
 public class Menu {
     private Library library;
@@ -17,6 +21,7 @@ public class Menu {
             view.show();
         }
         else if (command == 2){
+            view = new ViewEnterBookNo();
             int bookno = new Inputs().getBookNoForCheckout();
             this.library.checkoutBook(bookno);
         }
