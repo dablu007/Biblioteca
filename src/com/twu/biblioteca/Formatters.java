@@ -18,6 +18,9 @@ public class Formatters {
         ArrayList<HashMap> books = new ArrayList<>();
         for (String s : bookValueAfterSplit) {
             String[] book = s.split(":");
+            if (book[3].equals("not-available")) {
+                continue;
+            }
             map = new HashMap();
             map.put("author",book[0]);
             map.put("bookNo",book[1]);
