@@ -19,6 +19,7 @@ public class LibraryTest {
     private IView view;
     private Library library;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setUp(){
         book = new HashMap();
@@ -38,5 +39,21 @@ public class LibraryTest {
     public void shouldCheckoutABook() {
         library.checkoutBook(1);
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldReturnABookIfBookReturningIsCheckedOut(){
+        HashMap anotherBook = new HashMap();
+        anotherBook.put("bookNo", 1);
+        anotherBook.put("bookName", "Java");
+        anotherBook.put("availability", "not-available");
+        anotherBook.put("author", "James Gosling");
+        anotherBook.put("publication", "TMH");
+        view = mock(IView.class);
+        ArrayList<HashMap> anotherBooks = new ArrayList<HashMap>();
+        anotherBooks.add(anotherBook);
+        Library anotherlibrary = new Library(anotherBooks);
+        anotherlibrary.returnBook(1);
+        assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
 }
