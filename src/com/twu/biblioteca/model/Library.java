@@ -14,7 +14,7 @@ public class Library {
     }
 
     public void exit() {
-        System.exit(1);
+        System.exit(0);
     }
 
     public ArrayList<HashMap> getBooks() {
