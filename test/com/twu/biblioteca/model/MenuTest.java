@@ -86,4 +86,17 @@ public class MenuTest {
         assertEquals("Enter A Book Number\n", outContent.toString());
         verify(library).checkoutBook("1");
     }
+
+    @Test
+    public void shouldReturnAValidBook() {
+        Library library = mock(Library.class);
+        IView view = mock(IView.class);
+        Inputs inputs = mock(Inputs.class);
+        Menu menu = new Menu(library, view);
+
+
+        menu.executeCommand(3);
+        assertEquals("Enter A Book Number\n", outContent.toString());
+        verify(library).returnBook("1");
+    }
 }
