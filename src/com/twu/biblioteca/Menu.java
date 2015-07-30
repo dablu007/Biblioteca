@@ -10,8 +10,10 @@ public class Menu {
         this.view = view;
     }
 
-    public void executeCommand(int command) {
-        if (command == 1){
+    public void executeCommand(Integer command) {
+        if (command == null)
+            return;
+        else if (command == 1){
             view.show();
         }
         else if (command == 2){

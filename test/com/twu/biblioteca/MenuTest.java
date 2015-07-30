@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 
@@ -58,5 +59,14 @@ public class MenuTest {
 
         menu.executeCommand(10);
         assertEquals("Select a valid option!\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldDoNothingWhenInputPassedIsNothing(){
+        Library library = mock(Library.class);
+        IView view = mock(IView.class);
+        Menu menu = new Menu(library, view);
+
+        menu.executeCommand(null);
     }
 }
