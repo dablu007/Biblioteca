@@ -1,6 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Inputs;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

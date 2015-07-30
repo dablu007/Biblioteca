@@ -13,11 +13,17 @@
             <classpath location="lib/hamcrest-core-1.3.jar" path="antBuild"/>
             <classpath location="lib/junit-4.11.jar" path="antBuild"/>
             <classpath location="lib/mockito-all-1.9.5.jar" path="antBuild"/>
-            <test name="com.twu.biblioteca.ViewInvalidMessageTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.ViewWelcomeMessageTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.ViewListOfBooksTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.ViewCheckoutBookTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.LibraryTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewCheckoutBookTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewNotCheckoutBookTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewEnterBookNoTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewShowOptionsTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewWelcomeMessageTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewListOfBooksTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewInvalidMessageTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.model.LibraryTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.model.FormatterTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.model.InputsTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.model.MenuTest" haltonfailure="true" haltonerror="true"/>
         </junit>
     </target>
     <target name ="createJar" depends="compile">

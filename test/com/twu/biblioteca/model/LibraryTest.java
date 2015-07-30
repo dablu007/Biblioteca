@@ -1,6 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Library;
 import com.twu.biblioteca.view.IView;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +11,6 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 
 public class LibraryTest {
@@ -39,6 +37,6 @@ public class LibraryTest {
     @Test
     public void shouldCheckoutABook() {
         library.checkoutBook(1);
-        assertEquals("Books Successfully Checkout\n", outContent.toString());
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 }

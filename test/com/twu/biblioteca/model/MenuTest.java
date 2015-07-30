@@ -1,8 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Formatter;
-import com.twu.biblioteca.model.Library;
-import com.twu.biblioteca.model.Menu;
 import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.ViewInvalidMessage;
 import org.junit.Before;
@@ -14,7 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 

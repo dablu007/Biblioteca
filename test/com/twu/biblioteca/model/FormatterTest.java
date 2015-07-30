@@ -1,15 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
 
-import com.twu.biblioteca.model.Formatter;
-import com.twu.biblioteca.model.Library;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 
 public class FormatterTest {
     private HashMap book;

@@ -1,6 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.view.ViewWelcomeMessage;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -2,6 +2,7 @@ package com.twu.biblioteca.model;
 
 import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.ViewCheckoutBook;
+import com.twu.biblioteca.view.ViewNotCheckoutBook;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,16 +25,21 @@ public class Library {
 
     public void checkoutBook(int bookNo) {
         HashMap book;
-        IView view = new ViewCheckoutBook();
+        IView checkoutBook = new ViewCheckoutBook();
+        IView notCheckoutBook = new ViewNotCheckoutBook();
+        boolean checkout = false;
         for (int i = 0; i < books.size(); i++) {
             book = books.get(i);
             if (book.get("bookNo") == bookNo){
                 book.remove("availability");
                 book.put("availability", "not-available");
-                view.show();
+                checkout = true;
+                checkoutBook.show();
                 return ;
             }
         }
+        if (!checkout)
+            notCheckoutBook.show();
     }
 
     @Override
