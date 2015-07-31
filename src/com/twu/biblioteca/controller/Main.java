@@ -1,22 +1,22 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.*;
-import com.twu.biblioteca.view.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.ViewListOfBooks;
+import com.twu.biblioteca.view.ViewShowOptions;
+import com.twu.biblioteca.view.ViewWelcomeMessage;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Scanner scanner = new Scanner(System.in);
         IView welcomeView = new ViewWelcomeMessage();
         Inputs inputs = new Inputs();
-        ArrayList<HashMap> books = inputs.addBooks();
-        Library library = new Library(books);
+        ArrayList<Book> books = inputs.addBooks();
+        Library library = new Library(books, new ArrayList<Book>());
         Formatter formatter = new Formatter(library);
         IView listBooks = new ViewListOfBooks(formatter);
         IView optionsView = new ViewShowOptions();
@@ -24,16 +24,11 @@ public class Main {
         String  option;
 
         while (true){
-            try {
-                optionsView.show();
-                System.out.println("Enter Your Choice");
-                option = br.readLine();
-                Menu menu = new Menu(library, listBooks);
-                menu.executeCommand(option);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            optionsView.show();
+            System.out.println("Enter Your Choice");
+            option = scanner.next();
+            Menu menu = new Menu(library, listBooks);
+            menu.executeCommand(option);
         }
     }
 }

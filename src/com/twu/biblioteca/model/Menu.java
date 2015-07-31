@@ -2,7 +2,7 @@ package com.twu.biblioteca.model;
 
 
 import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.ViewEnterBookNo;
+import com.twu.biblioteca.view.ViewEnterBookName;
 import com.twu.biblioteca.view.ViewInvalidMessage;
 
 
@@ -22,15 +22,15 @@ public class Menu {
             view.show();
         }
         else if (command.equals("2")){
-            view = new ViewEnterBookNo();
+            view = new ViewEnterBookName();
             view.show();
-            String bookno = new Inputs().getBookNo();
-            this.library.checkoutBook(bookno);
+            String bookName = new Inputs().getBookName();
+            this.library.checkoutBook(bookName);
         }
         else if (command.equals("3")){
-            view = new ViewEnterBookNo();
+            view = new ViewEnterBookName();
             view.show();
-            String bookno = new Inputs().getBookNo();
+            String bookno = new Inputs().getBookName();
             this.library.returnBook(bookno);
         }
         else if (command.equals("4")){

@@ -18,6 +18,10 @@ public class Library {
         System.exit(0);
     }
 
+    public ArrayList<Book> getAvailableBooks() {
+        return availableBooks;
+    }
+
     public void checkoutBook(String bookName) {
         Book book;
         IView checkoutBook = new ViewCheckoutBook();

@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,21 +24,13 @@ public class InputsTest {
 
     @Test
     public void shouldAddBooksInitiallyToTheLibrary() {
-        HashMap bookOne = new HashMap();
-        HashMap bookTwo = new HashMap();
-        bookOne.put("bookNo", "1");
-        bookOne.put("bookName", "Java");
-        bookOne.put("availability", "available");
-        bookOne.put("author", "James Gosling");
-        bookOne.put("publication", "TMH");
-        bookTwo.put("bookNo", "2");
-        bookTwo.put("bookName", "C++");
-        bookTwo.put("availability", "available");
-        bookTwo.put("author", "James Stroutstrup");
-        bookTwo.put("publication", "TMH");
-        ArrayList<HashMap> books = new ArrayList<HashMap>();
+        Book bookOne = new Book("Java","James Gosling","TMH");
+        Book bookTwo = new Book("C++","Bjarne Stroutstrup","TMH");
+        Book bookThree = new Book("C","Dennis Richie","TMH");
+        ArrayList<Book> books = new ArrayList<Book>();
         books.add(bookOne);
         books.add(bookTwo);
+        books.add(bookThree);
         Inputs input = new Inputs();
         assertEquals(books, input.addBooks());
     }
@@ -48,6 +39,6 @@ public class InputsTest {
     public void shouldTestTheBookNumberForCheckout() {
         Inputs inputs = new Inputs();
 
-        assertEquals("1", inputs.getBookNo());
+        assertEquals("1", inputs.getBookName());
     }
 }

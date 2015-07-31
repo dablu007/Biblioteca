@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 
-public class ViewEnterBookNoTest {
+public class ViewEnterBookNameTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -18,9 +18,9 @@ public class ViewEnterBookNoTest {
 
     @Test
     public void shouldAskForABookNumber() {
-        IView view = new ViewEnterBookNo();
+        IView view = new ViewEnterBookName();
 
         view.show();
-        assertEquals("Enter A Book Number\n", outContent.toString());
+        assertEquals("Enter A Book Name\n", outContent.toString());
     }
 }

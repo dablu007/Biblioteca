@@ -4,29 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Inputs {
-    public ArrayList<HashMap> addBooks() {
-        HashMap bookOne = new HashMap();
-        HashMap bookTwo = new HashMap();
-        bookOne.put("bookNo", "1");
-        bookOne.put("bookName", "Java");
-        bookOne.put("availability", "available");
-        bookOne.put("author", "James Gosling");
-        bookOne.put("publication", "TMH");
-        bookTwo.put("bookNo", "2");
-        bookTwo.put("bookName", "C++");
-        bookTwo.put("availability", "available");
-        bookTwo.put("author", "James Stroutstrup");
-        bookTwo.put("publication", "TMH");
-        ArrayList<HashMap> books = new ArrayList<HashMap>();
+    public ArrayList<Book> addBooks() {
+        Book bookOne = new Book("Java","James Gosling","TMH");
+        Book bookTwo = new Book("C++","Bjarne Stroutstrup","TMH");
+        Book bookThree = new Book("C","Dennis Richie","TMH");
+        ArrayList<Book> books = new ArrayList<Book>();
         books.add(bookOne);
         books.add(bookTwo);
+        books.add(bookThree);
         return books;
     }
 
-    public String getBookNo() {
+    public String getBookName() {
         String bookNoForCheckout = new String();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         try {
