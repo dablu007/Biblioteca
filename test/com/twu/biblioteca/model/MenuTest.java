@@ -8,16 +8,16 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 
 public class MenuTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayInputStream inputContent = new ByteArrayInputStream("1".getBytes());
+    private final ByteArrayInputStream inputContent = new ByteArrayInputStream("Java".getBytes());
 
     @Before
     public void setUpStreams() {
@@ -27,15 +27,10 @@ public class MenuTest {
 
     @Test
     public void shouldExecuteACommandWithMenu() {
-        HashMap book = new HashMap();
-        book.put("bookNo", 1);
-        book.put("bookName", "Java");
-        book.put("availability", "available");
-        book.put("author", "James Gosling");
-        book.put("publication", "TMH");
-        ArrayList<HashMap> books = new ArrayList<HashMap>();
+        Book book = new Book("Java","James Gosling","TMH");
+        ArrayList<Book> books = new ArrayList<>();
         books.add(book);
-        Library library = new Library(books);
+        Library library = new Library(books, new ArrayList<Book>());
         Formatter formatter = new Formatter(library);
         IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
@@ -82,7 +77,7 @@ public class MenuTest {
 
         menu.executeCommand("2");
         assertEquals("Enter A Book Number\n", outContent.toString());
-        verify(library).checkoutBook("1");
+        verify(library).checkoutBook("Java");
     }
 
     @Test
@@ -94,7 +89,7 @@ public class MenuTest {
 
         menu.executeCommand("3");
         assertEquals("Enter A Book Number\n", outContent.toString());
-        verify(library).returnBook("1");
+        verify(library).returnBook("Java");
     }
 
     @Test
