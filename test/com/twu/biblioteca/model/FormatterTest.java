@@ -1,60 +1,32 @@
 package com.twu.biblioteca.model;
 
 import org.junit.Test;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
+
 public class FormatterTest {
-    private HashMap book;
-    private ArrayList<HashMap> books;
+    private Book book;
+    private Book book1;
+    private ArrayList<Book> availableBooks;
+    private ArrayList<Book> anotherBooks;
+    private ArrayList<Book> checkoutBooks;
     private Library library;
-    private HashMap book1;
 
     @Test
     public void shouldListBooksFromLibrary() {
-        book = new HashMap();
-        book1 = new HashMap();
-        book.put("bookNo", 1);
-        book.put("bookName", "Java");
-        book.put("availability", "available");
-        book.put("author", "James Gosling");
-        book.put("publication", "TMH");
-        book1.put("bookNo", 2);
-        book1.put("bookName", "C++");
-        book1.put("availability", "available");
-        book1.put("author", "James Gosling");
-        book1.put("publication", "TMH");
-        books = new ArrayList<HashMap>();
-        books.add(book);
-        books.add(book1);
-        library = new Library(books);
+        book = new Book("Java","James Gosling","TMH");
+        book1 = new Book("C++","Bjarne Stroutstrup","TMH");
+        availableBooks = new ArrayList<>();
+        checkoutBooks = new ArrayList<>();
+        availableBooks.add(book);
+        library = new Library(availableBooks, checkoutBooks);
         Formatter formatter = new Formatter(library);
-        assertEquals(books, formatter.format());
-    }
-
-    @Test
-    public void shouldListBooksAvailableFromLibrary() {
-        book = new HashMap();
-        book1 = new HashMap();
-        book.put("bookNo", 1);
-        book.put("bookName", "Java");
-        book.put("availability", "not-available");
-        book.put("author", "James Gosling");
-        book.put("publication", "TMH");
-        book1.put("bookNo", 2);
-        book1.put("bookName", "C++");
-        book1.put("availability", "available");
-        book1.put("author", "James Gosling");
-        book1.put("publication", "TMH");
-        books = new ArrayList<HashMap>();
-        books.add(book);
-        books.add(book1);
-        library = new Library(books);
-        Formatter formatter = new Formatter(library);
-        ArrayList<HashMap> expectedBooks = new ArrayList();
-        expectedBooks.add(book1);
-        assertEquals(expectedBooks, formatter.format());
+        Book anotherBook = new Book("Java","James Gosling","TMH");
+        anotherBooks = new ArrayList<>();
+        anotherBooks.add(anotherBook);
+        assertEquals(anotherBooks.get(0), formatter.format().get(0));
     }
 }

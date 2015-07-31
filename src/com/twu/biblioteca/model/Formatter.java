@@ -1,25 +1,20 @@
 package com.twu.biblioteca.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Formatter {
-    private ArrayList<HashMap> books;
+    private ArrayList<Book> books;
     private Library library;
-    private HashMap book;
+    private Book book;
     public Formatter(Library library) {
         this.library = library;
     }
 
-    public ArrayList<HashMap> format() {
-        ArrayList<HashMap> newBooks = new ArrayList<>();
-        books = library.getBooks();
-        book = new HashMap();
-        for (int i = 0; i < books.size(); i++) {
-            book = books.get(i);
-            if (book.get("availability").equals("not-available"))
-                continue;
-            newBooks.add(book);
+    public ArrayList<Book> format() {
+        ArrayList<Book> newBooks = new ArrayList<>();
+        books = library.getAvailableBooks();
+        for (int i = 0; i <books.size(); i++) {
+            newBooks.add(books.get(i));
         }
         return newBooks;
     }
