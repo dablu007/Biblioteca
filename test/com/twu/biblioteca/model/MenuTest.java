@@ -31,7 +31,6 @@ public class MenuTest {
         ArrayList<Book> books = new ArrayList<>();
         books.add(book);
         Library library = new Library(books, new ArrayList<Book>());
-        Formatter formatter = new Formatter(library);
         IView view = mock(IView.class);
         Menu menu = new Menu(library, view);
 
@@ -76,7 +75,7 @@ public class MenuTest {
 
 
         menu.executeCommand("2");
-        assertEquals("Enter A Book Number\n", outContent.toString());
+        assertEquals("Enter A Book Name\n", outContent.toString());
         verify(library).checkoutBook("Java");
     }
 
@@ -88,7 +87,7 @@ public class MenuTest {
 
 
         menu.executeCommand("3");
-        assertEquals("Enter A Book Number\n", outContent.toString());
+        assertEquals("Enter A Book Name\n", outContent.toString());
         verify(library).returnBook("Java");
     }
 

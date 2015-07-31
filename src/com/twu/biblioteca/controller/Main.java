@@ -17,8 +17,7 @@ public class Main {
         Inputs inputs = new Inputs();
         ArrayList<Book> books = inputs.addBooks();
         Library library = new Library(books, new ArrayList<Book>());
-        Formatter formatter = new Formatter(library);
-        IView listBooks = new ViewListOfBooks(formatter);
+        IView listBooks = new ViewListOfBooks(library);
         IView optionsView = new ViewShowOptions();
         welcomeView.show();
         String  option;
