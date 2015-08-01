@@ -1,10 +1,7 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.*;
-import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.ViewListOfBooks;
-import com.twu.biblioteca.view.ViewShowOptions;
-import com.twu.biblioteca.view.ViewWelcomeMessage;
+import com.twu.biblioteca.view.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,16 +23,26 @@ public class Main {
         ListBooks listBooks = new ListBooks(library, viewListOfBooks);
         CheckoutBook checkoutBook = new CheckoutBook(library);
         ReturnBook returnBook = new ReturnBook(library);
+        Exit exit = new Exit(library);
+        InvalidMessage invalidMessage = new InvalidMessage(new ViewInvalidMessage());
         HashMap menuOptions = new HashMap();
         menuOptions.put("1", listBooks);
         menuOptions.put("2", checkoutBook);
         menuOptions.put("3", returnBook);
+        menuOptions.put("4", exit);
+        menuOptions.put("5", invalidMessage);
         while (true){
             optionsView.show();
             System.out.println("Enter Your Choice");
             option = scanner.next();
-            IOperation operation = (IOperation) menuOptions.get(option);
-            operation.execute();
+            if (menuOptions.containsKey(option)) {
+                IOperation operation = (IOperation) menuOptions.get(option);
+                operation.execute();
+            }
+            else{
+                IOperation operation = (IOperation) menuOptions.get("5");
+                operation.execute();
+            }
 
         }
     }
