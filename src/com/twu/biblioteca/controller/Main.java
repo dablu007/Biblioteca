@@ -7,6 +7,7 @@ import com.twu.biblioteca.view.ViewShowOptions;
 import com.twu.biblioteca.view.ViewWelcomeMessage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -22,12 +23,17 @@ public class Main {
         welcomeView.show();
         String  option;
 
+        CheckoutBook checkoutBook = new CheckoutBook(library);
+        HashMap menuOptions = new HashMap();
+        menuOptions.put("2",checkoutBook);
         while (true){
             optionsView.show();
             System.out.println("Enter Your Choice");
             option = scanner.next();
             Menu menu = new Menu(library, listBooks);
-            menu.executeCommand(option);
+            IOperation operation = (IOperation) menuOptions.get(option);
+            operation.execute();
+//            menu.executeCommand(option);
         }
     }
 }
