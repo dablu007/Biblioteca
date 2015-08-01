@@ -22,11 +22,11 @@
             <test name="com.twu.biblioteca.view.ViewInvalidMessageTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.LibraryTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.InputsTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.model.MenuTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.CheckoutBookTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.ReturnBookTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.ListBooksTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.ExitTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.MenuOptionsTest" haltonfailure="true" haltonerror="true"/>
         </junit>
     </target>
     <target name ="createJar" depends="compile">

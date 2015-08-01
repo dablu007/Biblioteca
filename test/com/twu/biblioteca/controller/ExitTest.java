@@ -6,7 +6,9 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+
 public class ExitTest {
+
     @Test
     public void shouldExitForExitCommand() {
         Library library = mock(Library.class);
