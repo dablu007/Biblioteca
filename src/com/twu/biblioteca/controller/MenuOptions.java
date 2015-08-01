@@ -15,9 +15,6 @@ public class MenuOptions {
     public MenuOptions(Library library) {
         this.library = library;
         menu = new HashMap();
-
-    }
-    public IOperation getOperation(String input){
         IView viewListOfBooks = new ViewListOfBooks(library);
         ListBooks listBooks = new ListBooks(library, viewListOfBooks);
         CheckoutBook checkoutBook = new CheckoutBook(library);
@@ -29,6 +26,10 @@ public class MenuOptions {
         menu.put("3", returnBook);
         menu.put("4", exit);
         menu.put("5", invalidMessage);
+
+    }
+    public IOperation getOperation(String input){
+
         if (menu.containsKey(input))
             return (IOperation) menu.get(input);
         return (IOperation) menu.get("5");
