@@ -25,18 +25,18 @@ public class Main {
 
         ListBooks listBooks = new ListBooks(library, viewListOfBooks);
         CheckoutBook checkoutBook = new CheckoutBook(library);
+        ReturnBook returnBook = new ReturnBook(library);
         HashMap menuOptions = new HashMap();
         menuOptions.put("1", listBooks);
         menuOptions.put("2", checkoutBook);
+        menuOptions.put("3", returnBook);
         while (true){
             optionsView.show();
             System.out.println("Enter Your Choice");
             option = scanner.next();
-//            Menu menu = new Menu(library, listBooks);
             IOperation operation = (IOperation) menuOptions.get(option);
             operation.execute();
 
-//            menu.executeCommand(option);
         }
     }
 }
