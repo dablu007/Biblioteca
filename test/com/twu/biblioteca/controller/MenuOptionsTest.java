@@ -20,5 +20,14 @@ public class MenuOptionsTest {
 
     }
 
+    @Test
+    public void shouldCallTheListMoviesCommandForInput5() {
+        Library library = mock(Library.class);
+        MenuOptions menuOptions = new MenuOptions(library);
+        IView view = mock(IView.class);
 
+        ListMovies listMovies = new ListMovies(library, view);
+        assertEquals(listMovies.getClass(), menuOptions.getOperation("5").getClass());
+
+    }
 }
