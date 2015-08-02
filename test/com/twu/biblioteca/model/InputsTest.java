@@ -23,16 +23,22 @@ public class InputsTest {
     }
 
     @Test
-    public void shouldAddBooksInitiallyToTheLibrary() {
+    public void shouldAddBooksAndMoviesInitiallyToTheLibrary() {
         Book bookOne = new Book("Java","James Gosling","TMH");
         Book bookTwo = new Book("C++","Bjarne Stroutstrup","TMH");
         Book bookThree = new Book("C","Dennis Richie","TMH");
-        ArrayList<Book> books = new ArrayList<Book>();
-        books.add(bookOne);
-        books.add(bookTwo);
-        books.add(bookThree);
+        Movie movieOne = new Movie("Harry Potter 1","2001","Chris Columbus","10");
+        Movie movieTwo = new Movie("Harry Potter 2","2004","Chris Columbus","9");
+        Movie movieThree = new Movie("Harry Potter 3","2005","Chris Columbus","8");
+        ArrayList<IRentableType> list = new ArrayList<IRentableType>();
+        list.add(bookOne);
+        list.add(bookTwo);
+        list.add(bookThree);
+        list.add(movieOne);
+        list.add(movieTwo);
+        list.add(movieThree);
         Inputs input = new Inputs();
-        assertEquals(books, input.addBooks());
+        assertEquals(list, input.addItems());
     }
 
     @Test
