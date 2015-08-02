@@ -1,6 +1,7 @@
 package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.IRentableType;
 import com.twu.biblioteca.model.Library;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,9 +24,9 @@ public class ViewListOfBooksTest {
     @Test
     public void shouldListAllTheBooksAvailableInLibrary() {
         Book book = new Book("Java","James Gosling","TMH");
-        ArrayList<Book> availableBooks = new ArrayList<>();
+        ArrayList<IRentableType> availableBooks = new ArrayList<>();
         availableBooks.add(book);
-        Library library = new Library(availableBooks, new ArrayList<Book>());
+        Library library = new Library(availableBooks, new ArrayList<IRentableType>());
         ViewListOfBooks viewListOfBooks = new ViewListOfBooks(library);
         viewListOfBooks.show();
 

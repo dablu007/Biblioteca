@@ -17,6 +17,6 @@ public class ReturnBook implements IOperation {
         IView view = new ViewEnterBookName();
         view.show();
         String bookno = new Inputs().getBookName();
-        library.returnBook(bookno);
+        library.returnItem(bookno);
     }
 }

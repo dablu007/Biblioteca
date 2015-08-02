@@ -1,6 +1,5 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.controller.IOperation;
 import com.twu.biblioteca.model.Inputs;
 import com.twu.biblioteca.model.Library;
 import com.twu.biblioteca.view.IView;
@@ -19,7 +18,7 @@ public class CheckoutBook implements IOperation {
         IView view = new ViewEnterBookName();
         view.show();
         String bookName = new Inputs().getBookName();
-        library.checkoutBook(bookName);
+        library.checkoutItem(bookName);
     }
 
 }

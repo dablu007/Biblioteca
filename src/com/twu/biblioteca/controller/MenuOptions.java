@@ -27,8 +27,8 @@ public class MenuOptions {
         menu.put("1", listBooks);
         menu.put("2", checkoutBook);
         menu.put("3", returnBook);
-        menu.put("4", exit);
-        menu.put("5", listMovies);
+        menu.put("4", listMovies);
+        menu.put("5", exit);
         menu.put("6", invalidMessage);
 
     }

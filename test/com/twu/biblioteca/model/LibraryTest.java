@@ -26,12 +26,12 @@ public class LibraryTest {
     @Test
     public void shouldCheckoutABookWhichHasTitle() {
         Book book = new Book("Java","James Gosling","TMH");
-        ArrayList<Book> books = new ArrayList<>();
-        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        ArrayList<IRentableType> books = new ArrayList<>();
+        ArrayList<IRentableType> checkoutBooks = new ArrayList<>();
         books.add(book);
         Library library = new Library(books, checkoutBooks);
 
-        library.checkoutBook("Java");
+        library.checkoutItem("Java");
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
 
     }
@@ -39,13 +39,14 @@ public class LibraryTest {
     @Test
     public void shouldReturnACheckedOutBookWhichHasTitle() {
         Book book = new Book("Java","James Gosling","TMH");
-        ArrayList<Book> books = new ArrayList<>();
-        ArrayList<Book> checkoutBooks = new ArrayList<>();
+        ArrayList<IRentableType> books = new ArrayList<>();
+        ArrayList<IRentableType> checkoutBooks = new ArrayList<>();
         checkoutBooks.add(book);
         Library library = new Library(books, checkoutBooks);
 
-        library.returnBook("Java");
+        library.returnItem("Java");
         assertEquals("Thank you for returning the book.\n", outContent.toString());
 
     }
+
 }

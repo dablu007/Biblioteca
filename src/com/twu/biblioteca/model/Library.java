@@ -5,12 +5,20 @@ import com.twu.biblioteca.view.*;
 import java.util.ArrayList;
 
 public class Library {
-    private ArrayList<Book> availableBooks;
-    private ArrayList<Book> checkoutBooks;
+    private ArrayList<IRentableType> availableList;
+    private ArrayList<IRentableType> checkoutList;
 
-    public Library(ArrayList<Book> availableBooks, ArrayList<Book> checkoutBooks) {
-        this.availableBooks = availableBooks;
-        this.checkoutBooks = checkoutBooks;
+    public ArrayList<IRentableType> getAvailableList() {
+        return availableList;
+    }
+
+    public ArrayList<IRentableType> getCheckoutList() {
+        return checkoutList;
+    }
+
+    public Library(ArrayList<IRentableType> availableList, ArrayList<IRentableType> checkoutList) {
+        this.availableList = availableList;
+        this.checkoutList = checkoutList;
     }
 
 
@@ -18,20 +26,17 @@ public class Library {
         System.exit(0);
     }
 
-    public ArrayList<Book> getAvailableBooks() {
-        return availableBooks;
-    }
 
-    public void checkoutBook(String bookName) {
+    public void checkoutItem(String bookName) {
         Book book;
         IView checkoutBook = new ViewCheckoutBook();
         IView notCheckoutBook = new ViewNotCheckoutBook();
         boolean checkout = false;
-        for (int i = 0; i < availableBooks.size(); i++) {
-            book = availableBooks.get(i);
+        for (int i = 0; i < availableList.size(); i++) {
+            book = (Book) availableList.get(i);
             if (book.hasTitle(bookName)){
-                availableBooks.remove(i);
-                checkoutBooks.add(book);
+                availableList.remove(i);
+                checkoutList.add(book);
                 checkoutBook.show();
                 checkout = true;
             }
@@ -40,16 +45,16 @@ public class Library {
         if (!checkout)
             notCheckoutBook.show();
     }
-    public void returnBook(String bookName) {
+    public void returnItem(String bookName) {
         Book book;
         IView returnBook = new ViewReturnBook();
         IView notReturnBook = new ViewNotReturnBook();
         boolean bookReturned = false;
-        for (int i = 0; i < checkoutBooks.size(); i++) {
-            book = checkoutBooks.get(i);
+        for (int i = 0; i < checkoutList.size(); i++) {
+            book = (Book) checkoutList.get(i);
             if (book.hasTitle(bookName)){
-                checkoutBooks.remove(i);
-                availableBooks.add(book);
+                checkoutList.remove(i);
+                availableList.add(book);
                 returnBook.show();
                 bookReturned = true;
             }

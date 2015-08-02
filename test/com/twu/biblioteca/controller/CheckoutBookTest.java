@@ -29,6 +29,6 @@ public class CheckoutBookTest {
         IOperation checkoutBook = new CheckoutBook(library);
 
         checkoutBook.execute();
-        verify(library).checkoutBook("Java");
+        verify(library).checkoutItem("Java");
     }
 }

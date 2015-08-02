@@ -29,6 +29,6 @@ public class ReturnBookTest {
         IOperation returnBook = new ReturnBook(library);
 
         returnBook.execute();
-        verify(library).returnBook("Java");
+        verify(library).returnItem("Java");
     }
 }

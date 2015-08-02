@@ -1,7 +1,7 @@
 package com.twu.biblioteca.model;
 
 
-public class Book {
+public class Book implements IRentableType{
     private String bookName;
     private String author;
     private String publication;
@@ -47,5 +47,10 @@ public class Book {
         result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + (publication != null ? publication.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public RentableType getType() {
+        return RentableType.BOOK;
     }
 }
