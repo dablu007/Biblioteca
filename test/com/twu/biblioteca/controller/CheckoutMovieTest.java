@@ -9,7 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -17,10 +20,12 @@ public class CheckoutMovieTest {
 
 
     private ByteArrayInputStream inputStream = new ByteArrayInputStream("HarryPotter".getBytes());
+    private ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
     @Before
     public void setUpStreams() {
         System.setIn(inputStream);
+        System.setOut(new PrintStream(outputStream));
     }
 
     @After
@@ -36,6 +41,7 @@ public class CheckoutMovieTest {
         CheckoutMovie checkoutMovie = new CheckoutMovie(library, user);
 
         checkoutMovie.execute();
+        assertEquals("Enter A MOVIE Name\n", outputStream.toString());
         verify(library).checkoutItem("HarryPotter", RentableType.MOVIE);
     }
 }

@@ -23,28 +23,33 @@ public class Main {
         IView optionsView = new ViewShowOptions();
         welcomeView.show();
         String  option;
-        System.out.println("1.User");
-        System.out.println("2.Admin");
-        System.out.println("Enter Your Choice");
-        String input = scanner.next();
-        if (input.equals("1")) {
-            System.out.println("Enter the Library Number");
-            String name = scanner.next();
-            System.out.println("Enter the Password");
-            String password = scanner.next();
-            User user = new User();
-            if (user.isValid(name,password)) {
-                MenuOptions menuOptions = new MenuOptions(library, user);
-                while (true) {
-                    optionsView.show();
-                    System.out.println("Enter Your Choice");
-                    option = scanner.next();
-                    IOperation operation = menuOptions.getOperation(option);
-                    operation.execute();
+        User user = new User();
+        MenuOptions menuOptions = new MenuOptions(library, user);
+        while(true) {
+            System.out.println("1.User");
+            System.out.println("2.Admin");
+            System.out.println("Enter Your Choice");
+            String input = scanner.next();
+            if (input.equals("1")) {
+                System.out.println("Enter the Library Number");
+                String name = scanner.next();
+                System.out.println("Enter the Password");
+                String password = scanner.next();
+                if (user.isValid(name, password)) {
+                    while (true) {
+                        optionsView.show();
+                        System.out.println("Enter Your Choice");
+                        option = scanner.next();
+                        IOperation operation = menuOptions.getOperation(option);
+                        if (operation.execute() == 1)
+                            break;
+                    }
+                } else {
+                    System.out.println("Not A Valid User");
                 }
             }
-            else{
-                System.out.println("Not A Valid User");
+            if (!input.equals("1") || !input.equals("2")){
+                break;
             }
         }
     }

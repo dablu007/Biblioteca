@@ -10,7 +10,8 @@ public class ListUserInfo implements IOperation {
     }
 
     @Override
-    public void execute() {
+    public int execute() {
         view.show();
+        return 0;
     }
 }

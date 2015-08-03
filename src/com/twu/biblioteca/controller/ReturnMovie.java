@@ -14,10 +14,11 @@ public class ReturnMovie implements IOperation {
     }
 
     @Override
-    public void execute() {
+    public int execute() {
         IView view = new ViewEnterNameForCheckout(RentableType.MOVIE);
         view.show();
         String movieName = new Inputs().getNameForCheckout();
         library.returnItem(movieName, RentableType.MOVIE);
+        return 0;
     }
 }

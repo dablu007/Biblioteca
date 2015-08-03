@@ -14,10 +14,11 @@ public class ReturnBook implements IOperation {
     }
 
     @Override
-    public void execute() {
+    public int execute() {
         IView view = new ViewEnterNameForCheckout(RentableType.BOOK);
         view.show();
         String bookno = new Inputs().getNameForCheckout();
         library.returnItem(bookno, RentableType.BOOK);
+        return 0;
     }
 }

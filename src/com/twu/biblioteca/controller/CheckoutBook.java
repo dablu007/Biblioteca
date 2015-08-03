@@ -13,11 +13,12 @@ public class CheckoutBook implements IOperation {
     }
 
     @Override
-    public void execute() {
+    public int execute() {
         IView view = new ViewEnterNameForCheckout(RentableType.BOOK);
         view.show();
         String bookName = new Inputs().getNameForCheckout();
         library.checkoutItem(bookName, RentableType.BOOK);
+        return 0;
     }
 
 }

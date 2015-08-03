@@ -17,10 +17,11 @@ public class CheckoutMovie implements IOperation{
     }
 
     @Override
-    public void execute() {
+    public int execute() {
         IView view = new ViewEnterNameForCheckout(RentableType.MOVIE);
         view.show();
         String bookName = new Inputs().getNameForCheckout();
         library.checkoutItem(bookName, RentableType.MOVIE);
+        return 0;
     }
 }

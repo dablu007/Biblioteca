@@ -10,7 +10,7 @@ public class Exit implements IOperation {
     }
 
     @Override
-    public void execute() {
-        library.exit();
+    public int execute() {
+        return library.exit();
     }
 }

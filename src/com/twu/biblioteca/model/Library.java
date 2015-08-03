@@ -8,6 +8,7 @@ public class Library {
     private ArrayList<IRentableType> availableList;
     private ArrayList<IRentableType> checkoutList;
 
+
     public ArrayList<IRentableType> getAvailableList() {
         return availableList;
     }
@@ -22,8 +23,8 @@ public class Library {
     }
 
 
-    public void exit() {
-        System.exit(0);
+    public int exit() {
+        return 1;
     }
 
 
@@ -53,6 +54,7 @@ public class Library {
             if (item.isAvilable(bookName) && item.isSameType(type)){
                 checkoutList.remove(i);
                 availableList.add(item);
+
                 returnItem.show();
                 bookReturned = true;
             }
