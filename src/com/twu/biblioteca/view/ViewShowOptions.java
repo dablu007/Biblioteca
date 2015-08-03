@@ -10,6 +10,7 @@ public class ViewShowOptions implements IView {
         System.out.println("3.Return a Book");
         System.out.println("4.List Movies");
         System.out.println("5.Checkout Movie");
-        System.out.println("6.Quit");
+        System.out.println("6.User Details");
+        System.out.println("7.Quit");
     }
 }
