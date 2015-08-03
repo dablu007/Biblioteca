@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 public class MenuOptionsTest {
 
     @Test
-    public void shouldGiveListBooksCommadForTheInput1() {
+    public void shouldGiveListBooksForTheInput1() {
         Library library = mock(Library.class);
         User user = mock(User.class);
         MenuOptions menuOptions = new MenuOptions(library, user);
@@ -23,7 +23,7 @@ public class MenuOptionsTest {
     }
 
     @Test
-    public void shouldCallTheListMoviesCommandForInput4() {
+    public void shouldCallTheListMoviesForInput4() {
         User user = mock(User.class);
         Library library = mock(Library.class);
         MenuOptions menuOptions = new MenuOptions(library, user);
@@ -31,6 +31,16 @@ public class MenuOptionsTest {
 
         ListMovies listMovies = new ListMovies(library, view);
         assertEquals(listMovies.getClass(), menuOptions.getOperation("4").getClass());
+    }
 
+    @Test
+    public void shouldCallTheListUserInfoForInput7() {
+        User user = mock(User.class);
+        Library library = mock(Library.class);
+        MenuOptions menuOptions = new MenuOptions(library, user);
+        IView view = mock(IView.class);
+
+        ListUserInfo listUserInfo = new ListUserInfo(view);
+        assertEquals(listUserInfo.getClass(), menuOptions.getOperation("6").getClass());
     }
 }
