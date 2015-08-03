@@ -25,6 +25,6 @@ public class Inputs {
 
     public String getNameForCheckout() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.next();
+        return scanner.nextLine();
     }
 }
