@@ -2,13 +2,14 @@ package com.twu.biblioteca.view;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 
+public class ViewReturnTest {
 
-public class ViewNotCheckoutBookTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -17,10 +18,10 @@ public class ViewNotCheckoutBookTest {
     }
 
     @Test
-    public void shouldShowBookNotAvailableWhenNotInLibrary() {
-        IView view = new ViewNotCheckoutBook();
+    public void shouldShowMessageWhenReturnBookIsSuccessful() {
+        IView view = new ViewReturn();
 
         view.show();
-        assertEquals("That book is not available\n", outContent.toString());
+        assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
 }

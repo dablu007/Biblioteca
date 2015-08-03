@@ -1,6 +1,6 @@
 package com.twu.biblioteca.view;
 
-public class ViewNotCheckoutBook implements IView {
+public class ViewNotCheckout implements IView {
 
     @Override
     public void show() {
