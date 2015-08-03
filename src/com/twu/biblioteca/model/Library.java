@@ -45,20 +45,20 @@ public class Library {
             notCheckout.show();
     }
     public void returnItem(String bookName, RentableType type) {
-        IView returnBook = new ViewReturn(type);
-        IView notReturnBook = new ViewNotReturn(type);
+        IView returnItem = new ViewReturn(type);
+        IView notReturnItem = new ViewNotReturn(type);
         boolean bookReturned = false;
         for (int i = 0; i < checkoutList.size(); i++) {
             IRentableType item = checkoutList.get(i);
             if (item.isAvilable(bookName) && item.isSameType(type)){
                 checkoutList.remove(i);
                 availableList.add(item);
-                returnBook.show();
+                returnItem.show();
                 bookReturned = true;
             }
 
         }
         if (!bookReturned)
-            notReturnBook.show();
+            notReturnItem.show();
     }
 }
