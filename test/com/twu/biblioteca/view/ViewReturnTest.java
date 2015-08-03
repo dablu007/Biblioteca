@@ -25,4 +25,12 @@ public class ViewReturnTest {
         view.show();
         assertEquals("Thank you for returning the BOOK.\n", outContent.toString());
     }
+
+    @Test
+    public void shouldShowMessageWhenReturnMovieIsSuccessful() {
+        IView view = new ViewReturn(RentableType.MOVIE);
+
+        view.show();
+        assertEquals("Thank you for returning the MOVIE.\n", outContent.toString());
+    }
 }
