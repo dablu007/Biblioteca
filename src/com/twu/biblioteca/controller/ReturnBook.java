@@ -2,8 +2,9 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.Inputs;
 import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.RentableType;
 import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.ViewEnterBookName;
+import com.twu.biblioteca.view.ViewEnterNameForCheckout;
 
 public class ReturnBook implements IOperation {
     private Library library;
@@ -14,9 +15,9 @@ public class ReturnBook implements IOperation {
 
     @Override
     public void execute() {
-        IView view = new ViewEnterBookName();
+        IView view = new ViewEnterNameForCheckout(RentableType.BOOK);
         view.show();
-        String bookno = new Inputs().getBookName();
-        library.returnItem(bookno);
+        String bookno = new Inputs().getNameForCheckout();
+        library.returnItem(bookno, RentableType.BOOK);
     }
 }

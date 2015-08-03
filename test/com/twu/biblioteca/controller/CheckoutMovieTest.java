@@ -16,7 +16,7 @@ import static org.mockito.Mockito.verify;
 public class CheckoutMovieTest {
 
 
-    private ByteArrayInputStream inputStream = new ByteArrayInputStream("Harry Potter 1".getBytes());
+    private ByteArrayInputStream inputStream = new ByteArrayInputStream("HarryPotter".getBytes());
 
     @Before
     public void setUpStreams() {
@@ -33,9 +33,9 @@ public class CheckoutMovieTest {
         Library library = mock(Library.class);
         User user = mock(User.class);
         IView view = mock(IView.class);
-        CheckoutMovie checkoutMovie = new CheckoutMovie(library, view);
+        CheckoutMovie checkoutMovie = new CheckoutMovie(library, user);
 
         checkoutMovie.execute();
-        verify(library).checkoutItem("Harry Potter 1", RentableType.MOVIE);
+        verify(library).checkoutItem("HarryPotter", RentableType.MOVIE);
     }
 }

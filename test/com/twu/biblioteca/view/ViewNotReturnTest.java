@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.model.RentableType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,9 +20,9 @@ public class ViewNotReturnTest {
 
     @Test
     public void shouldShowMessageWhenBookReturningIsNotValid() {
-        IView view = new ViewNotReturn();
+        IView view = new ViewNotReturn(RentableType.BOOK);
 
         view.show();
-        assertEquals("That is not a valid book to return\n", outContent.toString());
+        assertEquals("That is not a valid BOOK to return\n", outContent.toString());
     }
 }

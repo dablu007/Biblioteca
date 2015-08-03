@@ -1,6 +1,7 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.RentableType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +30,7 @@ public class ReturnBookTest {
         IOperation returnBook = new ReturnBook(library);
 
         returnBook.execute();
-        verify(library).returnItem("Java");
+        verify(library).returnItem("Java", RentableType.BOOK);
     }
+
 }

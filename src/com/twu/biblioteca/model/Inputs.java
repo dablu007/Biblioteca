@@ -1,9 +1,7 @@
 package com.twu.biblioteca.model;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Inputs {
 
@@ -25,15 +23,8 @@ public class Inputs {
     }
 
 
-    public String getBookName() {
-        String bookNoForCheckout = new String();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            bookNoForCheckout = bufferedReader.readLine();
-            return bookNoForCheckout;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return bookNoForCheckout;
+    public String getNameForCheckout() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
     }
 }

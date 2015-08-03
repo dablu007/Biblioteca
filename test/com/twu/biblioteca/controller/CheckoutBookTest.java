@@ -1,14 +1,17 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.RentableType;
+import com.twu.biblioteca.model.User;
+import com.twu.biblioteca.view.IView;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.ByteArrayInputStream;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+
 
 public class CheckoutBookTest {
     private ByteArrayInputStream inputStream = new ByteArrayInputStream("Java".getBytes());
@@ -26,9 +29,11 @@ public class CheckoutBookTest {
     @Test
     public void shouldCheckOutABook() {
         Library library = mock(Library.class);
-        IOperation checkoutBook = new CheckoutBook(library);
+        User user = mock(User.class);
+        IView view = mock(IView.class);
+        IOperation checkoutBook = new CheckoutBook(library, user);
 
         checkoutBook.execute();
-        verify(library).checkoutItem("Java");
+        verify(library).checkoutItem("Java", RentableType.BOOK);
     }
 }

@@ -45,6 +45,6 @@ public class InputsTest {
     public void shouldTestTheBookNumberForCheckout() {
         Inputs inputs = new Inputs();
 
-        assertEquals("1", inputs.getBookName());
+        assertEquals("1", inputs.getNameForCheckout());
     }
 }

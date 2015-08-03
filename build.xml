@@ -13,9 +13,9 @@
             <classpath location="lib/hamcrest-core-1.3.jar" path="antBuild"/>
             <classpath location="lib/junit-4.11.jar" path="antBuild"/>
             <classpath location="lib/mockito-all-1.9.5.jar" path="antBuild"/>
-            <test name="com.twu.biblioteca.view.ViewCheckoutBookTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.view.ViewNotCheckoutBookTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.view.ViewEnterBookNameTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewCheckoutTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewNotCheckoutTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewEnterNameForCheckoutTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewShowOptionsTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewWelcomeMessageTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewListOfBooksTest" haltonfailure="true" haltonerror="true"/>

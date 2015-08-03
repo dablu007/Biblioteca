@@ -31,8 +31,8 @@ public class LibraryTest {
         books.add(book);
         Library library = new Library(books, checkoutBooks);
 
-        library.checkoutItem("Java");
-        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+        library.checkoutItem("Java", RentableType.BOOK);
+        assertEquals("Thank you! Enjoy the BOOK\n", outContent.toString());
 
     }
 
@@ -44,8 +44,33 @@ public class LibraryTest {
         checkoutBooks.add(book);
         Library library = new Library(books, checkoutBooks);
 
-        library.returnItem("Java");
-        assertEquals("Thank you for returning the book.\n", outContent.toString());
+        library.returnItem("Java", RentableType.BOOK);
+        assertEquals("Thank you for returning the BOOK.\n", outContent.toString());
+
+    }
+
+    @Test
+    public void shouldCheckoutAMovie() {
+        Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
+        ArrayList<IRentableType> items = new ArrayList<>();
+        ArrayList<IRentableType> checkoutItems = new ArrayList<>();
+        items.add(movie);
+        Library library = new Library(items, checkoutItems);
+
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE);
+        assertEquals("Thank you! Enjoy the MOVIE\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldReturnAMovieWhichIsCheckoutAndIsValid() {
+        Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
+        ArrayList<IRentableType> items = new ArrayList<>();
+        ArrayList<IRentableType> checkoutItems = new ArrayList<>();
+        checkoutItems.add(movie);
+        Library library = new Library(items, checkoutItems);
+
+        library.returnItem("Harry Potter 1", RentableType.MOVIE);
+        assertEquals("Thank you for returning the MOVIE.\n", outContent.toString());
 
     }
 

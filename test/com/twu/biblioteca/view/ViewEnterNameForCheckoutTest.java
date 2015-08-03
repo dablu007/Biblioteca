@@ -9,7 +9,7 @@ import java.io.PrintStream;
 import static org.junit.Assert.assertEquals;
 
 
-public class ViewNotCheckoutTest {
+public class ViewEnterNameForCheckoutTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
@@ -18,18 +18,18 @@ public class ViewNotCheckoutTest {
     }
 
     @Test
-    public void shouldShowBookNotAvailableWhenNotInLibrary() {
-        IView view = new ViewNotCheckout(RentableType.BOOK);
+    public void shouldAskForABookName() {
+        IView view = new ViewEnterNameForCheckout(RentableType.BOOK);
 
         view.show();
-        assertEquals("That BOOK is not available\n", outContent.toString());
+        assertEquals("Enter A BOOK Name\n", outContent.toString());
     }
 
     @Test
-    public void shouldShowMovieNotAvailableWhenNotInLibrary() {
-        IView view = new ViewNotCheckout(RentableType.MOVIE);
+    public void shouldAskForAMovieName() {
+        IView view = new ViewEnterNameForCheckout(RentableType.MOVIE);
 
         view.show();
-        assertEquals("That MOVIE is not available\n", outContent.toString());
+        assertEquals("Enter A MOVIE Name\n", outContent.toString());
     }
 }

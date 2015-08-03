@@ -2,6 +2,7 @@ package com.twu.biblioteca.model;
 
 
 public class Book implements IRentableType{
+    private RentableType type;
     private String bookName;
     private String author;
     private String publication;
@@ -10,6 +11,7 @@ public class Book implements IRentableType{
         this.bookName = bookName;
         this.author = author;
         this.publication = publication;
+        this.type = RentableType.BOOK;
     }
 
     public boolean hasTitle(String name) {
@@ -50,7 +52,17 @@ public class Book implements IRentableType{
     }
 
     @Override
+    public boolean isAvilable(String name) {
+        return bookName.equals(name);
+    }
+
+    @Override
     public RentableType getType() {
         return RentableType.BOOK;
+    }
+
+    @Override
+    public boolean isSameType(RentableType type) {
+        return this.type.equals(RentableType.BOOK);
     }
 }

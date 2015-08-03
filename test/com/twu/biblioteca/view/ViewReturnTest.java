@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.model.RentableType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,9 +20,9 @@ public class ViewReturnTest {
 
     @Test
     public void shouldShowMessageWhenReturnBookIsSuccessful() {
-        IView view = new ViewReturn();
+        IView view = new ViewReturn(RentableType.BOOK);
 
         view.show();
-        assertEquals("Thank you for returning the book.\n", outContent.toString());
+        assertEquals("Thank you for returning the BOOK.\n", outContent.toString());
     }
 }

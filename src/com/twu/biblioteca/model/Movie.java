@@ -6,12 +6,13 @@ public class Movie implements IRentableType{
     private String yearOfRelease;
     private String director;
     private String movieRating;
-
+    private RentableType type;
     public Movie(String movieName, String yearOfRelease, String director, String movieRating) {
         this.movieName = movieName;
         this.yearOfRelease = yearOfRelease;
         this.director = director;
         this.movieRating = movieRating;
+        this.type = RentableType.MOVIE;
     }
 
     public boolean hasName(String input) {
@@ -35,8 +36,18 @@ public class Movie implements IRentableType{
     }
 
     @Override
+    public boolean isAvilable(String name) {
+        return movieName.equals(name);
+    }
+
+    @Override
     public RentableType getType() {
         return RentableType.MOVIE;
+    }
+
+    @Override
+    public boolean isSameType(RentableType type) {
+        return this.type.equals(RentableType.MOVIE);
     }
 
     @Override

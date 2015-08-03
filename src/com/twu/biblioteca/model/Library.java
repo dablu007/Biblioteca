@@ -27,34 +27,32 @@ public class Library {
     }
 
 
-    public void checkoutItem(String bookName) {
-        Book book;
-        IView checkoutBook = new ViewCheckoutBook();
-        IView notCheckoutBook = new ViewNotCheckoutBook();
+    public void checkoutItem(String bookName, RentableType type) {
+        IView viewCheckout = new ViewCheckout(type);
+        IView notCheckout = new ViewNotCheckout(type);
         boolean checkout = false;
         for (int i = 0; i < availableList.size(); i++) {
-            book = (Book) availableList.get(i);
-            if (book.hasTitle(bookName)){
+            IRentableType item =  availableList.get(i);
+            if (item.isAvilable(bookName) && item.isSameType(type)){
                 availableList.remove(i);
-                checkoutList.add(book);
-                checkoutBook.show();
+                checkoutList.add(item);
+                viewCheckout.show();
                 checkout = true;
             }
 
         }
         if (!checkout)
-            notCheckoutBook.show();
+            notCheckout.show();
     }
-    public void returnItem(String bookName) {
-        Book book;
-        IView returnBook = new ViewReturnBook();
-        IView notReturnBook = new ViewNotReturnBook();
+    public void returnItem(String bookName, RentableType type) {
+        IView returnBook = new ViewReturn(type);
+        IView notReturnBook = new ViewNotReturn(type);
         boolean bookReturned = false;
         for (int i = 0; i < checkoutList.size(); i++) {
-            book = (Book) checkoutList.get(i);
-            if (book.hasTitle(bookName)){
+            IRentableType item = checkoutList.get(i);
+            if (item.isAvilable(bookName) && item.isSameType(type)){
                 checkoutList.remove(i);
-                availableList.add(book);
+                availableList.add(item);
                 returnBook.show();
                 bookReturned = true;
             }

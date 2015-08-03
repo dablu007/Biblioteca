@@ -2,5 +2,8 @@ package com.twu.biblioteca.model;
 
 public interface IRentableType {
 
-    public RentableType getType();
+    boolean isAvilable(String name);
+    RentableType getType();
+
+    boolean isSameType(RentableType type);
 }
