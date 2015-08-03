@@ -11,6 +11,6 @@ public class UserTest {
     public void shouldCheckForValidUser() {
         User user = new User();
 
-        assertTrue(user.isValid("dablu", "123456"));
+        assertTrue(user.isValid("LIB001", "123456"));
     }
 }

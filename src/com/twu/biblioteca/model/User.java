@@ -5,12 +5,14 @@ public class User {
     private String password;
     private String userName;
     private String phoneNumber;
+    private String libraryNumber;
 
     public User() {
         this.userId = "dablu";
         this.password = "123456";
         this.userName = "Dablu";
         this.phoneNumber = "123456789";
+        this.libraryNumber = "LIB001";
     }
 
     public String getUserId() {
@@ -48,7 +50,11 @@ public class User {
         return result;
     }
 
-    public boolean isValid(String name, String password) {
-        return this.userId.equals(name) && this.password.equals(password);
+    public boolean isValid(String libraryNumber, String password) {
+        return this.libraryNumber.equals(libraryNumber) && this.password.equals(password);
+    }
+
+    public String getLibraryNumber() {
+        return libraryNumber;
     }
 }
