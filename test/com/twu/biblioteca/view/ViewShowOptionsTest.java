@@ -23,7 +23,8 @@ public class ViewShowOptionsTest {
 
         view.show();
         String expected = "1.List Books\n" + "2.Checkout a Book\n" + "3.Return a Book\n" + "4.List Movies\n"
-                + "5.Quit\n";
+                +"5.Checkout Movie\n"
+                + "6.Quit\n";
         assertEquals(expected, outContent.toString());
     }
 }
