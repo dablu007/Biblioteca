@@ -16,10 +16,18 @@ public class ViewCheckoutTest {
     public void setUpStreams() {
         System.setOut(new PrintStream(outContent));
     }
+
     @Test
     public void shouldShowCheckoutMessageForCheckoutBook() {
         IView viewCheckoutBook = new ViewCheckout(RentableType.BOOK);
         viewCheckoutBook.show();
         assertEquals("Thank you! Enjoy the BOOK\n", outContent.toString());
+    }
+
+    @Test
+    public void shouldShowCheckoutMessageForCheckoutMovie() {
+        IView viewCheckoutBook = new ViewCheckout(RentableType.MOVIE);
+        viewCheckoutBook.show();
+        assertEquals("Thank you! Enjoy the MOVIE\n", outContent.toString());
     }
 }

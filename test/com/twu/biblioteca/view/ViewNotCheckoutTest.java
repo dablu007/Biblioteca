@@ -1,5 +1,6 @@
 package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.model.RentableType;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
@@ -18,9 +19,9 @@ public class ViewNotCheckoutTest {
 
     @Test
     public void shouldShowBookNotAvailableWhenNotInLibrary() {
-        IView view = new ViewNotCheckout();
+        IView view = new ViewNotCheckout(RentableType.BOOK);
 
         view.show();
-        assertEquals("That book is not available\n", outContent.toString());
+        assertEquals("That BOOK is not available\n", outContent.toString());
     }
 }
