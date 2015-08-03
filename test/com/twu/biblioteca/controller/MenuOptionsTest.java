@@ -41,6 +41,17 @@ public class MenuOptionsTest {
         IView view = mock(IView.class);
 
         ListUserInfo listUserInfo = new ListUserInfo(view);
-        assertEquals(listUserInfo.getClass(), menuOptions.getOperation("6").getClass());
+        assertEquals(listUserInfo.getClass(), menuOptions.getOperation("7").getClass());
+    }
+
+    @Test
+    public void shouldCallTheReturnMovieForInput6() {
+        User user = mock(User.class);
+        Library library = mock(Library.class);
+        MenuOptions menuOptions = new MenuOptions(library, user);
+        IView view = mock(IView.class);
+
+        ReturnMovie returnMovie = new ReturnMovie(library);
+        assertEquals(returnMovie.getClass(), menuOptions.getOperation("6").getClass());
     }
 }

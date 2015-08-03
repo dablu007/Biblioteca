@@ -22,6 +22,7 @@ public class MenuOptions {
         CheckoutBook checkoutBook = new CheckoutBook(library, user);
         CheckoutMovie checkoutMovie = new CheckoutMovie(library, user);
         ReturnBook returnBook = new ReturnBook(library);
+        ReturnMovie returnMovie = new ReturnMovie(library);
         Exit exit = new Exit(library);
         InvalidMessage invalidMessage = new InvalidMessage(new ViewInvalidMessage());
         ListUserInfo listUserInfo = new ListUserInfo(new ViewListUserInfo(user));
@@ -31,9 +32,10 @@ public class MenuOptions {
         menu.put("3", returnBook);
         menu.put("4", listMovies);
         menu.put("5", checkoutMovie);
-        menu.put("6", listUserInfo);
-        menu.put("7", exit);
-        menu.put("8", invalidMessage);
+        menu.put("6", returnMovie);
+        menu.put("7", listUserInfo);
+        menu.put("8", exit);
+        menu.put("9", invalidMessage);
 
     }
 
@@ -41,6 +43,6 @@ public class MenuOptions {
 
         if (menu.containsKey(input))
             return (IOperation) menu.get(input);
-        return (IOperation) menu.get("8");
+        return (IOperation) menu.get("9");
     }
 }
