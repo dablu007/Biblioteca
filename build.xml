@@ -20,6 +20,8 @@
             <test name="com.twu.biblioteca.view.ViewWelcomeMessageTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewListOfBooksTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewInvalidMessageTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewReturnTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewNotReturnTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.LibraryTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.InputsTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.MovieTest" haltonfailure="true" haltonerror="true"/>
