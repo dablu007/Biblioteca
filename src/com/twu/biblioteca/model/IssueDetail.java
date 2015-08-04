@@ -1,10 +1,10 @@
 package com.twu.biblioteca.model;
 
-public class IssueDetails {
+public class IssueDetail {
     private IRentableType type;
     private User user;
 
-    public IssueDetails(IRentableType type, User user) {
+    public IssueDetail(IRentableType type, User user) {
         this.type = type;
         this.user = user;
     }
@@ -20,7 +20,7 @@ public class IssueDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        IssueDetails that = (IssueDetails) o;
+        IssueDetail that = (IssueDetail) o;
 
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
         return !(user != null ? !user.equals(that.user) : that.user != null);
