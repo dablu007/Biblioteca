@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<IRentableType> availableList;
     private ArrayList<IRentableType> checkoutList;
-    private ArrayList<IssueDetails> issuedItemList;
+    private ArrayList<IssueDetail> issuedItemList;
 
 
     public ArrayList<IRentableType> getAvailableList() {
@@ -21,7 +21,7 @@ public class Library {
     public Library(ArrayList<IRentableType> availableList, ArrayList<IRentableType> checkoutList) {
         this.availableList = availableList;
         this.checkoutList = checkoutList;
-        issuedItemList = new ArrayList<>();
+        issuedItemList = new ArrayList<IssueDetail>();
     }
 
 
@@ -34,13 +34,13 @@ public class Library {
         IView viewCheckout = new ViewCheckout(type);
         IView notCheckout = new ViewNotCheckout(type);
         boolean checkout = false;
-        IssueDetails issueDetail;
+        IssueDetail issueDetail;
         for (int i = 0; i < availableList.size(); i++) {
             IRentableType item =  availableList.get(i);
             if (item.isAvilable(bookName) && item.isSameType(type)){
                 availableList.remove(i);
                 checkoutList.add(item);
-                issueDetail = new IssueDetails(item, user);
+                issueDetail = new IssueDetail(item, user);
                 issuedItemList.add(issueDetail);
                 viewCheckout.show();
                 checkout = true;
@@ -69,7 +69,16 @@ public class Library {
             notReturnItem.show();
     }
 
-    public ArrayList<IssueDetails> getIssuedItemList() {
+    public ArrayList<IssueDetail> getIssuedItemList() {
         return issuedItemList;
+    }
+
+    public IssueDetail getIssueDetail(String name) {
+        for (int i = 0; i < issuedItemList.size(); i++) {
+            IssueDetail issueDetail = issuedItemList.get(i);
+            if (issueDetail.isEqual(name))
+                return issueDetail;
+        }
+        return null;
     }
 }

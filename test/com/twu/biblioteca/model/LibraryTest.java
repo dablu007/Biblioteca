@@ -84,10 +84,27 @@ public class LibraryTest {
         Library library = new Library(items, checkoutItems);
 
         library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
-        IssueDetails issueDetail = new IssueDetails(movie, user);
-        ArrayList<IssueDetails> issueDetails = new ArrayList<>();
+        IssueDetail issueDetail = new IssueDetail(movie, user);
+        ArrayList<IssueDetail> issueDetails = new ArrayList<>();
         issueDetails.add(issueDetail);
 
         assertEquals(issueDetails, library.getIssuedItemList());
+    }
+
+    @Test
+    public void shouldGiveAIssueDetailForAItemNamePassed() {
+        User user = new User();
+        Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
+        ArrayList<IRentableType> items = new ArrayList<>();
+        ArrayList<IRentableType> checkoutItems = new ArrayList<>();
+        items.add(movie);
+        Library library = new Library(items, checkoutItems);
+
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
+        IssueDetail issueDetail = new IssueDetail(movie, user);
+        ArrayList<IssueDetail> issueDetails = new ArrayList<>();
+        issueDetails.add(issueDetail);
+
+        assertEquals(issueDetail, library.getIssueDetail("Harry Potter 1"));
     }
 }
