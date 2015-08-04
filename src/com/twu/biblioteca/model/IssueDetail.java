@@ -15,6 +15,14 @@ public class IssueDetail {
         return null;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public IRentableType getType() {
+        return type;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,5 +40,9 @@ public class IssueDetail {
         int result = type != null ? type.hashCode() : 0;
         result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
+    }
+
+    public boolean isEqual(String name) {
+        return type.isEqual(name);
     }
 }

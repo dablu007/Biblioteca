@@ -46,6 +46,11 @@ public class Movie implements IRentableType{
     }
 
     @Override
+    public boolean isEqual(String name) {
+        return movieName.equals(name);
+    }
+
+    @Override
     public boolean isSameType(RentableType type) {
         return this.type.equals(RentableType.MOVIE);
     }

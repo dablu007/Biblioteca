@@ -59,7 +59,7 @@ public class User {
         return libraryNumber;
     }
 
-    public boolean isNotAdmin(String role) {
-        return role.equals("user");
+    public boolean isNotAdmin() {
+        return this.role.equals("user");
     }
 }

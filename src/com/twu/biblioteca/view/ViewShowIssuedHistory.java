@@ -15,7 +15,8 @@ public class ViewShowIssuedHistory implements IView {
 
     @Override
     public void show() {
-        User user = issueDetail.getUser();
+        User user = new User("dablu", "123456", "123456789", "user", "user");
+        user = issueDetail.getUser();
         System.out.println("------------------------------Issued List--------------------------");
         System.out.println(String.format("%17s%27s", "User Name", "Item Issued"));
         System.out.println(String.format("%17s%27s", user.getUserName(), name));

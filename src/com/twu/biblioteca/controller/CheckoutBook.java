@@ -17,7 +17,8 @@ public class CheckoutBook implements IOperation {
         IView view = new ViewEnterNameForCheckout(RentableType.BOOK);
         view.show();
         String bookName = new Inputs().getNameForCheckout();
-        library.checkoutItem(bookName, RentableType.BOOK);
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
+        library.checkoutItem(bookName, RentableType.BOOK, user);
         return 0;
     }
 

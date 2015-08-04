@@ -30,8 +30,8 @@ public class LibraryTest {
         ArrayList<IRentableType> checkoutBooks = new ArrayList<>();
         books.add(book);
         Library library = new Library(books, checkoutBooks);
-
-        library.checkoutItem("Java", RentableType.BOOK, new User());
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
+        library.checkoutItem("Java", RentableType.BOOK, user);
         assertEquals("Thank you! Enjoy the BOOK\n", outContent.toString());
 
     }
@@ -56,8 +56,8 @@ public class LibraryTest {
         ArrayList<IRentableType> checkoutItems = new ArrayList<>();
         items.add(movie);
         Library library = new Library(items, checkoutItems);
-
-        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, user);
         assertEquals("Thank you! Enjoy the MOVIE\n", outContent.toString());
     }
 
@@ -76,14 +76,14 @@ public class LibraryTest {
 
     @Test
     public void shouldAddItemIssueToTheIssuedList() {
-        User user = new User();
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
         Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
         ArrayList<IRentableType> items = new ArrayList<>();
         ArrayList<IRentableType> checkoutItems = new ArrayList<>();
         items.add(movie);
         Library library = new Library(items, checkoutItems);
 
-        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, user);
         IssueDetail issueDetail = new IssueDetail(movie, user);
         ArrayList<IssueDetail> issueDetails = new ArrayList<>();
         issueDetails.add(issueDetail);
@@ -93,14 +93,14 @@ public class LibraryTest {
 
     @Test
     public void shouldGiveAIssueDetailForAItemNamePassed() {
-        User user = new User();
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
         Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
         ArrayList<IRentableType> items = new ArrayList<>();
         ArrayList<IRentableType> checkoutItems = new ArrayList<>();
         items.add(movie);
         Library library = new Library(items, checkoutItems);
 
-        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User("dablu", "123456", "123456789", "user", "user"));
         IssueDetail issueDetail = new IssueDetail(movie, user);
         ArrayList<IssueDetail> issueDetails = new ArrayList<>();
         issueDetails.add(issueDetail);

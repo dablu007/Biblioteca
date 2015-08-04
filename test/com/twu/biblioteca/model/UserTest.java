@@ -19,13 +19,13 @@ public class UserTest {
     public void isValidUserWithRoleAsUser() {
         User user = new User("LIB001","123456","123456789","Dablu", "user");
 
-        assertTrue(user.isNotAdmin("user"));
+        assertTrue(user.isNotAdmin());
     }
 
     @Test
     public void isValidUserWithRoleAsAdmin() {
         User user = new User("LIB001","123456","123456789","Dablu", "admin");
 
-        assertFalse(user.isNotAdmin("admin"));
+        assertFalse(user.isNotAdmin());
     }
 }

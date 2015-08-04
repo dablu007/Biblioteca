@@ -22,7 +22,7 @@ public class ViewShowIssuedHistoryTest {
     @Test
     public void shouldShowTheNameOfUserAgainstWhichTheItemWasIssued() {
         Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
-        User user = new User();
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
         IssueDetail issueDetail = new IssueDetail(movie, user);
         String name = "Harry Potter 1";
         IView view = new ViewShowIssuedHistory(issueDetail, name);

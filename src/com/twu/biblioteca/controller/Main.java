@@ -1,12 +1,7 @@
 package com.twu.biblioteca.controller;
 
-import com.twu.biblioteca.model.IRentableType;
-import com.twu.biblioteca.model.Inputs;
-import com.twu.biblioteca.model.Library;
-import com.twu.biblioteca.model.User;
-import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.ViewShowOptions;
-import com.twu.biblioteca.view.ViewWelcomeMessage;
+import com.twu.biblioteca.model.*;
+import com.twu.biblioteca.view.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,19 +18,15 @@ public class Main {
         IView optionsView = new ViewShowOptions();
         welcomeView.show();
         String  option;
-        User user = new User();
+        User user = new User("LIB001", "123456", "123456789", "Dablu", "user");
+        User adminUser = new User("LIB003", "123456", "123456789", "Dablu", "admin");
         MenuOptions menuOptions = new MenuOptions(library, user);
         while(true) {
-            System.out.println("1.User");
-            System.out.println("2.Admin");
-            System.out.println("Enter Your Choice");
-            String input = scanner.next();
-            if (input.equals("1")) {
-                System.out.println("Enter the Library Number");
+                System.out.println("Enter the User Id");
                 String name = scanner.next();
                 System.out.println("Enter the Password");
                 String password = scanner.next();
-                if (user.isValid(name, password)) {
+                if (user.isValid(name, password) && user.isNotAdmin()) {
                     while (true) {
                         optionsView.show();
                         System.out.println("Enter Your Choice");
@@ -44,13 +35,18 @@ public class Main {
                         if (operation.execute() == 1)
                             break;
                     }
-                } else {
+                }
+                else if (adminUser.isValid(name, password) && (!adminUser.isNotAdmin() )){
+                    System.out.println("Enter the Item Name to Check");
+                    String itemName = scanner.next();
+                    IssueDetail issueDetail = library.getIssueDetail(itemName);
+                    IView viewShowIssuedHistory = new ViewShowIssuedHistory(issueDetail, itemName);
+                    viewShowIssuedHistory.show();
+                }
+                else {
                     System.out.println("Not A Valid User");
                 }
-            }
-            if (!input.equals("1") || !input.equals("2")){
-                break;
-            }
+
         }
     }
 }

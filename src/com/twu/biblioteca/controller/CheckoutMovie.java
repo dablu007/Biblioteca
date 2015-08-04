@@ -21,7 +21,8 @@ public class CheckoutMovie implements IOperation{
         IView view = new ViewEnterNameForCheckout(RentableType.MOVIE);
         view.show();
         String bookName = new Inputs().getNameForCheckout();
-        library.checkoutItem(bookName, RentableType.MOVIE);
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
+        library.checkoutItem(bookName, RentableType.MOVIE, user);
         return 0;
     }
 }

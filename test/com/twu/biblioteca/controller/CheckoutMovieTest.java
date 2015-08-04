@@ -42,6 +42,6 @@ public class CheckoutMovieTest {
 
         checkoutMovie.execute();
         assertEquals("Enter A MOVIE Name\n", outputStream.toString());
-        verify(library).checkoutItem("HarryPotter", RentableType.MOVIE);
+        verify(library).checkoutItem("HarryPotter", RentableType.MOVIE, new User("dablu", "123456", "123456789", "user", "user"));
     }
 }

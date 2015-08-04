@@ -20,7 +20,7 @@ public class ViewListUserInfoTest {
 
     @Test
     public void shouldShowTheUserInfoForTheCurrentlyLoggedInUser() {
-        User user = new User();
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
         IView view = new ViewListUserInfo(user);
 
         String expectedList = "------------------------------User Details--------------------------\n"

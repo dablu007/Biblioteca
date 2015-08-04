@@ -39,6 +39,6 @@ public class CheckoutBookTest {
 
         checkoutBook.execute();
         assertEquals("Enter A BOOK Name\n", outputStream.toString());
-        verify(library).checkoutItem("Java", RentableType.BOOK);
+        verify(library).checkoutItem("Java", RentableType.BOOK, new User("LIB001","123456","123456789","Dablu", "user"));
     }
 }
