@@ -31,7 +31,7 @@ public class LibraryTest {
         books.add(book);
         Library library = new Library(books, checkoutBooks);
 
-        library.checkoutItem("Java", RentableType.BOOK);
+        library.checkoutItem("Java", RentableType.BOOK, new User());
         assertEquals("Thank you! Enjoy the BOOK\n", outContent.toString());
 
     }
@@ -57,7 +57,7 @@ public class LibraryTest {
         items.add(movie);
         Library library = new Library(items, checkoutItems);
 
-        library.checkoutItem("Harry Potter 1", RentableType.MOVIE);
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
         assertEquals("Thank you! Enjoy the MOVIE\n", outContent.toString());
     }
 
@@ -74,4 +74,20 @@ public class LibraryTest {
 
     }
 
+    @Test
+    public void shouldAddItemIssueToTheIssuedList() {
+        User user = new User();
+        Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
+        ArrayList<IRentableType> items = new ArrayList<>();
+        ArrayList<IRentableType> checkoutItems = new ArrayList<>();
+        items.add(movie);
+        Library library = new Library(items, checkoutItems);
+
+        library.checkoutItem("Harry Potter 1", RentableType.MOVIE, new User());
+        IssueDetails issueDetail = new IssueDetails(movie, user);
+        ArrayList<IssueDetails> issueDetails = new ArrayList<>();
+        issueDetails.add(issueDetail);
+
+        assertEquals(issueDetails, library.getIssuedItemList());
+    }
 }

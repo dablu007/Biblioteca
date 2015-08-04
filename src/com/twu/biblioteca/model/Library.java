@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<IRentableType> availableList;
     private ArrayList<IRentableType> checkoutList;
+    private ArrayList<IssueDetails> issuedItemList;
 
 
     public ArrayList<IRentableType> getAvailableList() {
@@ -20,6 +21,7 @@ public class Library {
     public Library(ArrayList<IRentableType> availableList, ArrayList<IRentableType> checkoutList) {
         this.availableList = availableList;
         this.checkoutList = checkoutList;
+        issuedItemList = new ArrayList<>();
     }
 
 
@@ -28,15 +30,18 @@ public class Library {
     }
 
 
-    public void checkoutItem(String bookName, RentableType type) {
+    public void checkoutItem(String bookName, RentableType type, User user) {
         IView viewCheckout = new ViewCheckout(type);
         IView notCheckout = new ViewNotCheckout(type);
         boolean checkout = false;
+        IssueDetails issueDetail;
         for (int i = 0; i < availableList.size(); i++) {
             IRentableType item =  availableList.get(i);
             if (item.isAvilable(bookName) && item.isSameType(type)){
                 availableList.remove(i);
                 checkoutList.add(item);
+                issueDetail = new IssueDetails(item, user);
+                issuedItemList.add(issueDetail);
                 viewCheckout.show();
                 checkout = true;
             }
@@ -62,5 +67,9 @@ public class Library {
         }
         if (!bookReturned)
             notReturnItem.show();
+    }
+
+    public ArrayList<IssueDetails> getIssuedItemList() {
+        return issuedItemList;
     }
 }
