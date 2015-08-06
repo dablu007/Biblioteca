@@ -27,14 +27,8 @@ public class Main {
                 System.out.println("Enter the Password");
                 String password = scanner.next();
                 if (user.isValid(name, password) && user.isNotAdmin()) {
-                    while (true) {
-                        optionsView.show();
-                        System.out.println("Enter Your Choice");
-                        option = scanner.next();
-                        IOperation operation = menuOptions.getOperation(option);
-                        if (operation.execute() == 1)
-                            break;
-                    }
+                    UserMenu userMenu = new UserMenu(menuOptions, optionsView);
+                    userMenu.show();
                 }
                 else if (adminUser.isValid(name, password) && (!adminUser.isNotAdmin() )){
                     System.out.println("Enter the Item Name to Check");
