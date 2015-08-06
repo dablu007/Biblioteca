@@ -33,4 +33,15 @@ public class AdminMenuOptionsTest {
         assertEquals(listCheckoutMovies.getClass(), menuOptions.getOperation("2").getClass());
 
     }
+
+    @Test
+    public void shouldExitForTheInput10() {
+        Library library = mock(Library.class);
+        User user = mock(User.class);
+        AdminMenuOptions menuOptions = new AdminMenuOptions(library, user);
+        IView view = mock(IView.class);
+        Exit exit = new Exit(library);
+        assertEquals(exit.getClass(), menuOptions.getOperation("4").getClass());
+
+    }
 }
