@@ -4,6 +4,8 @@ import com.twu.biblioteca.view.*;
 
 import java.util.ArrayList;
 
+import static org.mockito.Mockito.mock;
+
 public class Library {
     private ArrayList<IRentableType> availableList;
     private ArrayList<IRentableType> checkoutList;
@@ -74,11 +76,14 @@ public class Library {
     }
 
     public IssueDetail getIssueDetail(String name) {
+        IssueDetail issueDetail;
+        Movie movie = mock(Movie.class);
+        User user = mock(User.class);
         for (int i = 0; i < issuedItemList.size(); i++) {
-            IssueDetail issueDetail = issuedItemList.get(i);
+            issueDetail = issuedItemList.get(i);
             if (issueDetail.isEqual(name))
                 return issueDetail;
         }
-        return null;
+        return new IssueDetail(movie, user);
     }
 }

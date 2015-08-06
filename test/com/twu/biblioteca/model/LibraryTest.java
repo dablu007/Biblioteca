@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 public class LibraryTest {
@@ -106,5 +107,19 @@ public class LibraryTest {
         issueDetails.add(issueDetail);
 
         assertEquals(issueDetail, library.getIssueDetail("Harry Potter 1"));
+    }
+
+    @Test
+    public void shouldNotGiveNullExceptionForAIssueDetail() {
+        User user = new User("LIB001","123456","123456789","Dablu", "user");
+        Movie movie = new Movie("Harry Potter 1","2001","Chris Columbus","10");
+        ArrayList<IRentableType> items = new ArrayList<>();
+        ArrayList<IRentableType> checkoutItems = new ArrayList<>();
+        items.add(movie);
+        Library library = new Library(items, checkoutItems);
+
+        ArrayList<IssueDetail> issueDetails = new ArrayList<>();
+
+        assertNotNull(library.getIssueDetail("Harry Potter 1"));
     }
 }
