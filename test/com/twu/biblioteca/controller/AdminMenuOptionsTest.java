@@ -35,13 +35,24 @@ public class AdminMenuOptionsTest {
     }
 
     @Test
-    public void shouldExitForTheInput10() {
+    public void shouldExitForTheInput4() {
         Library library = mock(Library.class);
         User user = mock(User.class);
         AdminMenuOptions menuOptions = new AdminMenuOptions(library, user);
         IView view = mock(IView.class);
         Exit exit = new Exit(library);
         assertEquals(exit.getClass(), menuOptions.getOperation("4").getClass());
+
+    }
+
+    @Test
+    public void shouldCallInvalidForTheInput10() {
+        Library library = mock(Library.class);
+        User user = mock(User.class);
+        AdminMenuOptions menuOptions = new AdminMenuOptions(library, user);
+        IView view = mock(IView.class);
+        InvalidMessage invalidMessage = new InvalidMessage(view);
+        assertEquals(invalidMessage.getClass(), menuOptions.getOperation("10").getClass());
 
     }
 }
