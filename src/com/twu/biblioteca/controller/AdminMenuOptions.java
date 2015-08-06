@@ -24,8 +24,8 @@ public class AdminMenuOptions {
         ListCheckoutMovies listCheckoutMovies = new ListCheckoutMovies(library, viewListCheckoutMovies);
         Exit exit = new Exit(library);
         InvalidMessage invalidMessage = new InvalidMessage(new ViewInvalidMessage());
+        IssuedList issuedList = new IssuedList(library);
         menu.put("1", listCheckoutBooks);
-        menu.put("2", listCheckoutMovies);
         menu.put("4", exit);
         menu.put("9", invalidMessage);
 
