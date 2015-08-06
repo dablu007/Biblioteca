@@ -1,4 +1,4 @@
 package com.twu.biblioteca.controller;
 
-public class AdminMenuOptionsTest {
+public class AdminMenuOptions {
 }
