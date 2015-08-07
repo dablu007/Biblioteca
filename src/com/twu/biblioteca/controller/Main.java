@@ -2,7 +2,6 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.model.*;
 import com.twu.biblioteca.view.*;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,11 +15,12 @@ public class Main {
         ArrayList<IRentableType> books = inputs.addItems();
         Library library = new Library(books, new ArrayList<IRentableType>());
         IView optionsView = new ViewShowOptions();
+        IView viewShowAdminMenu = new ViewShowAdminMenu();
         welcomeView.show();
-        String  option;
         User user = new User("LIB001", "123456", "123456789", "Dablu", "user");
         User adminUser = new User("LIB003", "123456", "123456789", "Dablu", "admin");
         MenuOptions menuOptions = new MenuOptions(library, user);
+        AdminMenuOptions adminMenuOptions = new AdminMenuOptions(library, user);
         while(true) {
                 System.out.println("Enter the User Id");
                 String name = scanner.next();
@@ -31,11 +31,8 @@ public class Main {
                     userMenu.show();
                 }
                 else if (adminUser.isValid(name, password) && (!adminUser.isNotAdmin() )){
-                    System.out.println("Enter the Item Name to Check");
-                    String itemName = scanner.next();
-                    IssueDetail issueDetail = library.getIssueDetail(itemName);
-                    IView viewShowIssuedHistory = new ViewShowIssuedHistory(issueDetail, itemName);
-                    viewShowIssuedHistory.show();
+                    AdminMenu adminMenu = new AdminMenu(library,adminMenuOptions, viewShowAdminMenu);
+                    adminMenu.show();
                 }
                 else {
                     System.out.println("Not A Valid User");
