@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="biblioteca" default="unit_tests">
+<project name="biblioteca" default="unitTests">
     <target name="compile" >
         <javac srcdir="src;test" includeantruntime="true" destdir="antBuild">
             <classpath location="lib/hamcrest-core-1.3.jar"/>
@@ -8,12 +8,12 @@
         </javac>
     </target>
 
-    <target name="unit_tests" depends="compile">
-        <junit haltonerror="true" haltonfailure="true" printsummary="true">
+    <target name="unitTests" depends="compile">
+        <junit haltonerror="true" haltonfailure="true" printsummary="true" showoutput="true">
             <classpath location="lib/hamcrest-core-1.3.jar" path="antBuild"/>
             <classpath location="lib/junit-4.11.jar" path="antBuild"/>
             <classpath location="lib/mockito-all-1.9.5.jar" path="antBuild"/>
-            <test name="com.twu.biblioteca.view.ViewCheckoutTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.view.ViewCheckoutTest" haltonfailure="true" haltonerror="true" />
             <test name="com.twu.biblioteca.view.ViewNotCheckoutTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewEnterNameForCheckoutTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.view.ViewShowOptionsTest" haltonfailure="true" haltonerror="true"/>
@@ -27,16 +27,21 @@
             <test name="com.twu.biblioteca.model.MovieTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.BookTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.model.UserTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.controller.ListMoviesTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.AdminMenuOptionsTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.CheckoutBookTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.CheckoutMovieTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.controller.ListBooksTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.controller.InvalidMessageTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.controller.ReturnBookTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.controller.ListBooksTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.ExitTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.InvalidMessageTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ListBooksTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ListCheckoutBooksTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ListCheckoutMoviesTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ListMoviesTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ListUserInfoTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.MenuOptionsTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ReturnBookTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.controller.ReturnMovieTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.controller.ShowUserInfoTest" haltonfailure="true" haltonerror="true"/>
+            <formatter usefile="false" type="brief"/>
         </junit>
     </target>
     <target name ="createJar" depends="compile">

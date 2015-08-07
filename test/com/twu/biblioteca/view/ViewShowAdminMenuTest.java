@@ -22,8 +22,11 @@ public class ViewShowAdminMenuTest {
         IView view = new ViewShowAdminMenu();
 
         view.show();
-        String expected = "1.List Checkout Books\n" + "2.List Checkout Movie\n" + "3.Check Item Issued Against User\n" +
-                 "4.Quit\n";
-        assertEquals(expected, outContent.toString());
+        String expected = "1.List Books\n" + "2.Checkout a Book\n" + "3.Return a Book\n" + "4.List Movies\n"
+                +"5.Checkout Movie\n" + "6.Return Movie\n" + "7.User Details\n"
+                ;
+        String expectedForAdmin = expected + "8.List Checkout Books\n" + "9.List Checkout Movie\n" + "10.Check Item Issued Against User\n" +
+                 "11.Quit\n";
+        assertEquals(expectedForAdmin, outContent.toString());
     }
 }
