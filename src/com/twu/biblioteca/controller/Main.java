@@ -17,8 +17,8 @@ public class Main {
         IView optionsView = new ViewShowOptions();
         IView viewShowAdminMenu = new ViewShowAdminMenu();
         welcomeView.show();
-        User user = new User("LIB001", "123456", "123456789", "Dablu", "user");
-        User adminUser = new User("LIB003", "123456", "123456789", "Dablu", "admin");
+        User user = new User("LIB001", "1", "123456789", "Dablu", "user");
+        User adminUser = new User("LIB003", "1", "123456789", "Dablu", "admin");
         MenuOptions menuOptions = new MenuOptions(library, user);
         AdminMenuOptions adminMenuOptions = new AdminMenuOptions(library, user);
         while(true) {
